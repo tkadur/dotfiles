@@ -103,7 +103,7 @@ noremap <silent> z! z=1<CR><CR>
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-  autocmd BufWritePre *.py :%s/\s\+$//e
+  autocmd BufWritePre * :%s/\s\+$//e
 endif
 
 " Make these commonly mistyped commands still work

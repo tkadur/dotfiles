@@ -53,6 +53,14 @@ alias cddddd="cd ../../../../"
 
 alias cat="colorize"
 
+alias back="cd -"
+
+# Syncing data with Andrew servers
+alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
+alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
+alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+
 vman() {
   vim -c "SuperMan $*"
 
@@ -125,3 +133,5 @@ autoload -U promptinit; promptinit
 prompt pure
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="/Users/Thejas/cc0/bin:$PATH"
