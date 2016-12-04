@@ -1,6 +1,3 @@
-" An extremely sketchy vimrc consisting mostly of the GPI defaults as well as 
-" stuff I stole from other people
-
 " Ensure that we are in modern vim mode, not backwards-compatible vi mode
 set nocompatible
 set backspace=indent,eol,start
