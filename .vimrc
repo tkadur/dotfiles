@@ -126,6 +126,11 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" Enable italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+highlight Comment cterm=italic
+
 " ----- Syntastic settings
 
 " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.

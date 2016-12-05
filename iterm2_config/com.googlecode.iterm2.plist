@@ -486,7 +486,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>Hotkey</key>
 	<false/>
 	<key>HotkeyChar</key>
@@ -502,7 +502,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 1</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles</string>
+	<string>~/Downloads</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -546,11 +546,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 207 599 388 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>233 152 796 473 0 0 1280 777 </string>
+	<string>233 170 918 498 0 0 1280 777 </string>
 	<key>NSWindow Frame com.apple.typography_panel_MenloForPowerline-Regular</key>
 	<string>212 484 260 36 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>230 300 570 423 0 0 1280 777 </string>
+	<string>320 202 640 379 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -747,8 +747,6 @@
 				<key>Red Component</key>
 				<real>0.094117647058823528</real>
 			</dict>
-			<key>Background Image Location</key>
-			<string></string>
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1238,6 +1236,10 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>67B67AE5-346D-45FB-AD31-90F034A4E6F1</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1292,7 +1294,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-12-03T20:21:28Z</date>
+	<date>2016-12-04T20:28:26Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
