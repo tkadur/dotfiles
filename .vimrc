@@ -28,6 +28,9 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+
 
 call vundle#end()
 
@@ -78,10 +81,10 @@ set showcmd
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 
 " Better line navigation scheme
-noremap ; l
 noremap j h
+noremap i e
 noremap <silent> k gj
-noremap <silent> l gk
+noremap <silent> i gk
 noremap <silent> 0 g0
 noremap <silent> $ g$
 noremap <silent> ^ g^
@@ -92,8 +95,8 @@ set incsearch
 
 nnoremap <C-j> <C-w>h
 nnoremap <C-k> <C-w>j
-nnoremap <C-l> <C-w>k
-nnoremap <C-;> <C-w>l
+nnoremap <C-l> <C-w>l
+nnoremap <C-i> <C-w>k
 
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$

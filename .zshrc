@@ -61,6 +61,11 @@ alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/
 alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 
+alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
+alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
+
+alias pyserver="python -m SimpleHTTPServer"
+
 vman() {
   vim -c "SuperMan $*"
 
@@ -105,7 +110,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize command-not-found cp osx vi-mode)
+plugins=(git colored-man-pages colorize command-not-found cp osx vi-mode zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -131,7 +136,5 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U promptinit; promptinit
 prompt pure
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="/Users/Thejas/cc0/bin:$PATH"
