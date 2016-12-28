@@ -53,6 +53,10 @@ alias cddddd="cd ../../../../"
 
 alias back="cd -"
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias i3config="vim ~/.config/i3/config"
+fi
+
 # Syncing data with Andrew servers
 #alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
 #alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
