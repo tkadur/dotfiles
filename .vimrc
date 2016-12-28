@@ -81,8 +81,9 @@ set showcmd
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 
 " Better line navigation scheme
+noremap = ;
+noremap ; i
 noremap j h
-noremap i e
 noremap <silent> k gj
 noremap <silent> i gk
 noremap <silent> 0 g0
