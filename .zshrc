@@ -51,15 +51,13 @@ alias cddd="cd ../../"
 alias cdddd="cd ../../../"
 alias cddddd="cd ../../../../"
 
-alias cat="colorize"
-
 alias back="cd -"
 
 # Syncing data with Andrew servers
-alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
-alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
-alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
-alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+#alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
+#alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
+#alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+#alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 
 alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
 alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
@@ -112,9 +110,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize command-not-found cp osx vi-mode zsh-syntax-highlighting)
+plugins=(git colored-man-pages command-not-found cp zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
+# Ugly, disgusting hack (Part 1)
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
@@ -136,7 +137,10 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-autoload -U promptinit; promptinit
-prompt pure
+# Ugly, disgusting hack (Part 2)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  autoload -U promptinit; promptinit
+  prompt pure
+fi
 
 export PATH="/Users/Thejas/cc0/bin:$PATH"

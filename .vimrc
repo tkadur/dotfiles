@@ -94,6 +94,13 @@ noremap <silent> _ g_
 " Incremental search
 set incsearch
 
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+
+" Smart case-sensitivity
+set ignorecase
+set smartcase
+
 nnoremap <C-j> <C-w>h
 nnoremap <C-k> <C-w>j
 nnoremap <C-l> <C-w>l
