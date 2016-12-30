@@ -49,4 +49,9 @@ color20 = #b8b8b8
 color21 = #e8e8e8
 
 [options]
-font = Roboto Mono for Powerline 10
+font = Roboto Mono for Powerline 8
+allow_bold = true
+dynamic_title = true
+cursor_blink = system
+cursor_shape = block
+browser = chromium

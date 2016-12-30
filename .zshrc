@@ -57,6 +57,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias i3config="vim ~/.config/i3/config"
 fi
 
+alias mine="sudo chown $(whoami)"
+
 # Syncing data with Andrew servers
 #alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
 #alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
@@ -148,3 +150,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 export PATH="/Users/Thejas/cc0/bin:$PATH"
+
+# Fix weird formatting issues
+export LC_ALL="en_US.UTF-8"
