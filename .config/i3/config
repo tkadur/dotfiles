@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 
 # kill focused window
-bindsym $mod+z kill
+bindsym $mod+w kill
 
 
 # change focus
@@ -61,7 +61,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -71,7 +71,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -95,7 +95,7 @@ set $workspace6 6
 set $workspace7 7
 set $workspace8 8
 set $workspace9 9
-set $workspace0 10
+set $workspace0 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -120,6 +120,10 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
+
+assign [class="^Termite$"] $workspace1
+assign [class="^Chromium$"] $workspace2
+assign [class="^Google Play Music Desktop Player$"] $workspace0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -213,7 +217,7 @@ bindsym $mod+Shift+x exec i3lock --color "$base00"
 for_window [class="^.*"] border pixel 1
 
 gaps inner 25
-gaps outer 10
+gaps outer 5
 
 smart_gaps on
 smart_borders on
@@ -221,7 +225,6 @@ smart_borders on
 workspace $workspace2 gaps inner 0
 workspace $workspace2 gaps outer 0
 
-hide_edge_borders both
-
-exec_always feh --bg-fill /home/thejas/Pictures/Wallpapers/mountainbird.jpg
 exec xrandr --output VGA-1 --mode 2560x1600 --pos 0x0 --rotate normal --dpi 192
+exec_always feh --bg-fill /home/thejas/Pictures/Wallpapers/mountainbird.jpg
+exec gpmdp

@@ -40,9 +40,9 @@ alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
 
 # End GPI additions
 
-alias la="ls -a"
-alias ll="ls -l"
-alias lal="ls -al"
+alias la='ls -a'
+alias ll='ls -l'
+alias lal='ls -al'
 alias lh='ls -d .*'
 alias lhl='ls -ld .*'
 
@@ -58,6 +58,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 alias mine="sudo chown $(whoami)"
+alias vi="vim"
 
 # Syncing data with Andrew servers
 #alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
@@ -84,7 +85,10 @@ vman() {
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="pure"
+# Ugly, disgusting hack (Part 1)
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  ZSH_THEME="pure"
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -118,10 +122,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages command-not-found cp zsh-syntax-highlighting)
 
-# Ugly, disgusting hack (Part 1)
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  source $ZSH/oh-my-zsh.sh
-fi
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -147,9 +148,10 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
   autoload -U promptinit; promptinit
   prompt pure
+
+  export PATH="/Users/Thejas/cc0/bin:$PATH"
 fi
 
-export PATH="/Users/Thejas/cc0/bin:$PATH"
 
 # Fix weird formatting issues
 export LC_ALL="en_US.UTF-8"
