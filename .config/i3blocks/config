@@ -30,7 +30,7 @@ markup=none
 
 full_text=|
 align=center
-color=#585858
+color=#65737e
 separator=false
 separator_block_width=7
 
@@ -38,7 +38,7 @@ separator_block_width=7
 [player]
 command=python ~/.config/i3blocks/player
 interval=1
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
@@ -47,15 +47,15 @@ separator=false
 instance=Core
 label=
 interval=5
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
 
 [load_average]
-label=
+label=
 interval=5
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
@@ -64,7 +64,7 @@ separator=false
 label=
 instance=mem;free
 interval=30
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
@@ -72,7 +72,7 @@ separator=false
 [ssid]
 label=
 interval=60
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 
@@ -81,7 +81,7 @@ separator=false
 [brightness]
 label=
 interval=1
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
@@ -89,7 +89,7 @@ separator=false
 [audio]
 label=
 interval=1
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
@@ -98,7 +98,7 @@ separator=false
 label=
 instance=0
 interval=5
-color=#d8d8d8
+color=#c0c5ce
 separator=false
 
 [separator]
@@ -106,10 +106,11 @@ separator=false
 # Date Time
 #
 [time]
-command=date '+%a %b %e  %I:%M:%S %p'
+command=date '+%a %b %d %I:%M:%S %p'
 interval=1
+label=
 separator=false
-color=#d8d8d8
+color=#c0c5ce
 
 # Generic media player support
 #

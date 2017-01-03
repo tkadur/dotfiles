@@ -66,7 +66,7 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-colorscheme base16-default-dark
+colorscheme base16-ocean
 filetype on
 filetype indent on
 filetype plugin on

@@ -2,29 +2,31 @@
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-Xft.dpi:       220
+Xft.dpi:       192
 ! }}}
-! Base16 Default Dark
+!
+
+! Base16 Ocean
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
-#define base00 #181818
-#define base01 #282828
-#define base02 #383838
-#define base03 #585858
-#define base04 #b8b8b8
-#define base05 #d8d8d8
-#define base06 #e8e8e8
-#define base07 #f8f8f8
-#define base08 #ab4642
-#define base09 #dc9656
-#define base0A #f7ca88
-#define base0B #a1b56c
-#define base0C #86c1b9
-#define base0D #7cafc2
-#define base0E #ba8baf
-#define base0F #a16946
+#define base00 #2b303b
+#define base01 #343d46
+#define base02 #4f5b66
+#define base03 #65737e
+#define base04 #a7adba
+#define base05 #c0c5ce
+#define base06 #dfe1e8
+#define base07 #eff1f5
+#define base08 #bf616a
+#define base09 #d08770
+#define base0A #ebcb8b
+#define base0B #a3be8c
+#define base0C #96b5b4
+#define base0D #8fa1b3
+#define base0E #b48ead
+#define base0F #ab7967
 
 *.foreground:   base05
 *.background:   base00
@@ -40,41 +42,31 @@ Xft.dpi:       220
 *.color7:       base05
 
 *.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
+*.color9:       base09
+*.color10:      base01
+*.color11:      base02
+*.color12:      base04
+*.color13:      base06
+*.color14:      base0F
 *.color15:      base07
-
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled:    true
-rofi.color-window:     argb:dd282828, argb:0082828, argb:0081818
-rofi.color-normal:     argb:0000000, #b8b8b8, argb:0082828, argb:00cafc2, #7cafc2
-rofi.color-active:     argb:0082828, #f8f8f8, argb:0082828, argb:00cafc2, #acdff2
-rofi.color-urgent:     argb:0082828, #dc322f, argb:0082828, argb:0dc322f, #ff5552
+rofi.color-window:     argb:dd343d46, argb:00000000, argb:00000000
+rofi.color-normal:     argb:00000000, base04, argb:00000000, argb:00000000, base07
+rofi.color-active:     argb:00000000, base0D, argb:00000000, argb:00000000, base0C
+rofi.color-urgent:     argb:00000000, base08, argb:00000000, argb:00000000, base09
 rofi.lines:             3
 rofi.fullscreen:        false
 rofi.font:              Roboto 35
 rofi.separator-style:   solid
 rofi.bw:                0
-rofi.eh:                 2
+rofi.eh:                1
 rofi.line-margin:       10
 rofi.hide-scrollbar:    true
 rofi.width:             100
 rofi.height:            100
 rofi.padding:           1000
 rofi.fake-transparency: true
-rofi.eh:                1
