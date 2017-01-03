@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 
 # kill focused window
-bindsym $mod+w kill
+bindsym $mod+q kill
 
 
 # change focus
@@ -61,7 +61,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -78,8 +78,9 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
+bindsym $mod+Mod1+3 exec scrot -q 100
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -124,6 +125,9 @@ bindsym $mod+Shift+0 move container to workspace $workspace0
 assign [class="^Termite$"] $workspace1
 assign [class="^Chromium$"] $workspace2
 assign [class="^Google Play Music Desktop Player$"] $workspace0
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -211,7 +215,7 @@ client.background       $base02
 
 bindsym $mod+r exec rofi -show run
 
-bindsym $mod+Shift+x exec i3lock --color "$base00"
+bindsym $mod+Shift+x exec lock -t "Enter password"
 
 # Disable titlebars
 for_window [class="^.*"] border pixel 1
@@ -222,9 +226,30 @@ gaps outer 5
 smart_gaps on
 smart_borders on
 
-workspace $workspace2 gaps inner 0
-workspace $workspace2 gaps outer 0
+#workspace $workspace2 gaps inner 0
+#workspace $workspace2 gaps outer 0
 
-exec xrandr --output VGA-1 --mode 2560x1600 --pos 0x0 --rotate normal --dpi 192
-exec_always feh --bg-fill /home/thejas/Pictures/Wallpapers/mountainbird.jpg
-exec gpmdp
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym $mod+Mod1+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym $mod+Mod1+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym $mod+Mod1+XF86MonBrightnessUp exec xbacklight -inc 1 # increase screen brightness
+bindsym $mod+Mod1+XF86MonBrightnessDown exec xbacklight -dec 1 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+exec --no-startup-id xrandr --output VGA-1 --mode 2560x1600 --pos 0x0 --rotate normal --dpi 192
+exec_always --no-startup-id feh --bg-fill /home/thejas/Pictures/wallup-91044.jpg
+exec --no-startup-id gpmdp
+exec --no-startup-id compton -f
+exec --no-startup-id libinput-gestures
