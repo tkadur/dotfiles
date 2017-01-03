@@ -1,1 +1,1 @@
-My sketchy dotfiles consisting mostly of GPI presets and stuff stolen from other people.
+My sketchy dotfiles consisting mostly of stuff stolen from other people.
