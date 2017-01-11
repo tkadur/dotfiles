@@ -152,6 +152,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/Users/Thejas/cc0/bin:$PATH"
 fi
 
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Fix weird formatting issues
 export LC_ALL="en_US.UTF-8"

@@ -189,6 +189,7 @@ bar {
     status_command i3blocks
     position top
     font pango: Roboto Mono for Powerline 9
+    tray_output disable
     colors {
         background $base00
         separator  $base00
@@ -213,12 +214,16 @@ client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base02
 
-bindsym $mod+r exec rofi -show run
+bindsym $mod+r exec --no-startup-id rofi -show run
 
-bindsym $mod+Shift+x exec lock -t "Enter password"
+bindsym $mod+Shift+x exec --no-startup-id lock -t "Enter password"
 
 # Disable titlebars
 for_window [class="^.*"] border pixel 1
+
+# Floating by default
+for_window [class="^Thunar$"] floating enable
+for_window [class="^feh$"] floating enable
 
 gaps inner 25
 gaps outer 5
@@ -230,31 +235,42 @@ smart_borders on
 #workspace $workspace2 gaps outer 0
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym $mod+Mod1+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym $mod+Mod1+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym $mod+Mod1+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym $mod+Mod1+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%; exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-bindsym $mod+Mod1+XF86MonBrightnessUp exec xbacklight -inc 1 # increase screen brightness
-bindsym $mod+Mod1+XF86MonBrightnessDown exec xbacklight -dec 1 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+bindsym $mod+Mod1+XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 1 # increase screen brightness
+bindsym $mod+Mod1+XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1 # decrease screen brightness
 
-bindsym XF86KbdBrightnessDown exec kbdlight down 5
-bindsym XF86KbdBrightnessUp exec kbdlight up 5
-bindsym $mod+Mod1+XF86KbdBrightnessDown exec kbdlight down 1
-bindsym $mod+Mod1+XF86KbdBrightnessUp exec kbdlight up 1
+bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down 5
+bindsym XF86KbdBrightnessUp exec --no-startup-id kbdlight up 5
+bindsym $mod+Mod1+XF86KbdBrightnessDown exec --no-startup-id kbdlight down 1
+bindsym $mod+Mod1+XF86KbdBrightnessUp exec --no-startup-id kbdlight up 1
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioPause exec --no-startup-id mpc toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+
+#Mouse controls
+bindsym --whole-window button8 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --whole-window button12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym --whole-window button13 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym --whole-window $mod+button12 workspace prev
+bindsym --whole-window $mod+button13 workspace next
+bindsym --whole-window button10 exec --no-startup-id xdotool key Home
+
+focus_follows_mouse no
 
 exec --no-startup-id xrandr --output VGA-1 --mode 2560x1600 --pos 0x0 --rotate normal --dpi 192
 exec_always --no-startup-id feh --bg-fill /home/thejas/Pictures/wallup-91044.jpg
 exec --no-startup-id gpmdp
 exec --no-startup-id compton -f
 exec --no-startup-id libinput-gestures
+exec --no-startup-id xcalib ~/.colorprofiles/MacbookDisplay.icc

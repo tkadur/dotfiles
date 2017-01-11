@@ -27,7 +27,6 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-scripts/a.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 

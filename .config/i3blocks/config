@@ -34,10 +34,16 @@ color=#65737e
 separator=false
 separator_block_width=7
 
-# Music
-[player]
-command=python ~/.config/i3blocks/player
-interval=1
+# # Music
+# [player]
+# command=python ~/.config/i3blocks/player
+# interval=1
+# color=#c0c5ce
+# separator=false
+
+[mediaplayer]
+command=mpc current
+interval=5
 color=#c0c5ce
 separator=false
 
