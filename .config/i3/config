@@ -122,9 +122,8 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
 
-assign [class="^Termite$"] $workspace1
+# assign [class="^Termite$"] $workspace1
 assign [class="^Chromium$"] $workspace2
-assign [class="^Google Play Music Desktop Player$"] $workspace0
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -216,8 +215,6 @@ client.background       $base02
 
 bindsym $mod+r exec --no-startup-id rofi -show run
 
-bindsym $mod+Shift+x exec --no-startup-id lock -t "Enter password"
-
 # Disable titlebars
 for_window [class="^.*"] border pixel 1
 
@@ -271,6 +268,9 @@ focus_follows_mouse no
 exec --no-startup-id xrandr --output VGA-1 --mode 2560x1600 --pos 0x0 --rotate normal --dpi 192
 exec_always --no-startup-id feh --bg-fill /home/thejas/Pictures/wallup-91044.jpg
 exec --no-startup-id gpmdp
+exec --no-startup-id mpd
+exec --no-startup-id i3-msg "workspace $workspace0;exec termite -e ncmpcpp"
 exec --no-startup-id compton -f
 exec --no-startup-id libinput-gestures
 exec --no-startup-id xcalib ~/.colorprofiles/MacbookDisplay.icc
+exec --no-startup-id i3-msg "workspace $workspace1"
