@@ -1,64 +1,27 @@
-# Created by newuser for 5.2
+# load a module robustly by skipping all remaining modules if any module fails
+# to load
+load_module() {
+  if [ -n "$ABORTED" ]; then
+    return
+  fi
 
-# We provide a few (useful) aliases and scripts for you to get started:
+  module="$1"
+  if [ -f "$module" ]; then
+    source $module
 
-### cc <arguments to gcc> -- Invokes gcc with the flags you will usually use
-### valgrind-leak <arguments to valgrind> -- Invokes valgrind in the mode to show all leaks
-### hidden <arguments to ls> -- Displays ONLY the hidden files
-### killz <program name> -- Kills all programs with the given program name
-### shell -- Displays the name of the shell being used
-### get_cs_afs_access -- Sets up cross-realm authentication with CS.CMU.EDU so you can access files stored there.
+    if [ "$?" != "0" ]; then
+      echo "Module $module failed to load. Exiting."
+      export ABORTED=1
+      return
+    fi
+  fi
+}
 
-# More features may be added later as thought of or requested.
-
-
-# ----- guard against non-interactive logins ---------------------------------
+# Guard against non-interactive logins
 [ -z "$PS1" ] && return
 
+load_module ~/.scripts/aliases.sh
 
-# ----- convenient alias and function definitions ----------------------------
-
-# color support for ls and grep
-alias grep='grep --color=auto'
-if [[ `uname` = "Darwin" || `uname` = "FreeBSD" ]]; then
-  alias ls='ls -G'
-else
-  alias ls='ls --color=auto'
-fi
-
-alias killz='killall -9 '
-alias rm='rm -v'
-alias cp='cp -v'
-alias mv='mv -v'
-alias shell='ps -p $$ -o comm='
-alias sml='rlwrap sml'
-alias math='rlwrap MathKernel'
-alias coin='rlwrap coin'
-
-alias cc='gcc -Wall -W -ansi -pedantic -O2 '
-alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
-
-# End GPI additions
-
-alias la='ls -a'
-alias ll='ls -l'
-alias lal='ls -al'
-alias lh='ls -d .*'
-alias lhl='ls -ld .*'
-
-alias cdd="cd ../"
-alias cddd="cd ../../"
-alias cdddd="cd ../../../"
-alias cddddd="cd ../../../../"
-
-alias back="cd -"
-
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  alias i3config="vim ~/.config/i3/config"
-fi
-
-alias mine="sudo chown $(whoami)"
-alias vi="vim"
 
 # Syncing data with Andrew servers
 #alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
@@ -66,18 +29,10 @@ alias vi="vim"
 #alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 #alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 
-alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
-alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
-alias pyserver="python -m SimpleHTTPServer"
-
-vman() {
-  vim -c "SuperMan $*"
-
-  if [ "$?" != "0" ]; then
-    echo "No manual entry for $*"
-  fi
-}
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias i3config="vim ~/.config/i3/config"
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -95,18 +50,18 @@ fi
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -129,20 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Ugly, disgusting hack (Part 2)
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -156,3 +106,4 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Fix weird formatting issues
 export LC_ALL="en_US.UTF-8"
+export LANG=en_US.UTF-8

@@ -69,4 +69,4 @@ rofi.hide-scrollbar:    true
 rofi.width:             100
 rofi.height:            100
 rofi.padding:           1000
-rofi.fake-transparency: true
+rofi.fake-transparency: false

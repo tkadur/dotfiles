@@ -11,14 +11,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'rust-lang/rust.vim'
-
 Plugin 'chriskempson/base16-vim'
-
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
@@ -29,7 +23,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-
 
 call vundle#end()
 
@@ -193,7 +186,7 @@ let g:airline_detect_paste=1
 " Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
 
-" Use the solarized theme for the Airline status bar
+" Use the base16 theme for the Airline status bar
 let g:airline_theme='base16'
 
 let g:airline#extensions#tabline#enabled = 1
