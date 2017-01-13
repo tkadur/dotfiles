@@ -43,7 +43,7 @@ alias cddddd="cd ../../../../"
 alias back="cd -"
 
 # See how much RAM Chrome is using (always helpful)
-alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
+alias chromemem="ps -ev | grep -i chromium | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
 alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
 
@@ -61,11 +61,15 @@ vman() {
   fi
 }
 
-vman() {
-  vim -c "SuperMan $*"
+# Open i3 config file
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias i3config="vim ~/.config/i3/config"
+fi
 
-  if [ "$?" != "0" ]; then
-    echo "No manual entry for $*"
-  fi
-}
-
+# Syncing data with Andrew servers
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
+  alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
+  alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+  alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+fi
