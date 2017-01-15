@@ -6,14 +6,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   ZSH_THEME="pure"
 fi
 
-# Ugly, disgusting hack (Part 2)
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  autoload -U promptinit; promptinit
-  prompt pure
-
-  export PATH="/Users/Thejas/cc0/bin:$PATH"
-fi
-
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -34,3 +26,11 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git colored-man-pages command-not-found cp zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+# Ugly, disgusting hack (Part 2)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  autoload -U promptinit; promptinit
+  prompt pure
+
+  export PATH="/Users/Thejas/cc0/bin:$PATH"
+fi
