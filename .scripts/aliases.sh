@@ -43,7 +43,7 @@ alias cddddd="cd ../../../../"
 alias back="cd -"
 
 # See how much RAM Chrome is using (always helpful)
-alias chromemem="ps -ev | grep -i chromium | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
+alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
 alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
 

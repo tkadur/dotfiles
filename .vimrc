@@ -23,6 +23,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'jez/vim-better-sml'
 
 call vundle#end()
 
