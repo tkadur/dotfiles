@@ -24,6 +24,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'jez/vim-better-sml'
+Plugin 'valloric/YouCompleteMe'
+Plugin 'wincent/Command-T'
 
 call vundle#end()
 
