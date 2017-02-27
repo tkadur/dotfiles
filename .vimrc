@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
@@ -24,8 +25,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'jez/vim-better-sml'
-Plugin 'valloric/YouCompleteMe'
+" Plugin 'valloric/YouCompleteMe'
 Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()
 
@@ -43,7 +47,7 @@ set splitbelow         " Horizontal splits  use  bottom half  of screen
 set timeoutlen=1000    " Lower ^[ timeout
 set fillchars=fold:\ , " get rid of obnoxious '-' characters in folds
 set tildeop            " use ~ to toggle case as an operator, not a motion
-set colorcolumn=+0     " show a column whenever textwidth is set
+" set colorcolumn=+0     " show a column whenever textwidth is set
 if exists('&breakindent')
   set breakindent      " Indent wrapped lines up to the same level
 endif
@@ -52,7 +56,7 @@ endif
 set wildmenu
 set wildmode=full
 
-"Enable filetype detection and syntax hilighting
+"Enable filetype detection and syntax highlighting
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -135,6 +139,13 @@ endif
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 highlight Comment cterm=italic
+
+" Hit ctrl+n to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Hit ctrl+s to save
+inoremap <C-s> <esc>:w<cr>a
+nnoremap <C-s> :w<CR>
 
 " ----- Syntastic settings
 

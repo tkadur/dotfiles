@@ -10,6 +10,13 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 export LC_ALL="en_US.UTF-8"
 export LANG=en_US.UTF-8
 
+# Fix vim ctrl+s to save
+stty -ixon
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+
 # Add fuzzy matching to completion
 # From http://superuser.com/a/815317
 zstyle ':completion:*' matcher-list '' \
