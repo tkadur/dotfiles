@@ -162,10 +162,20 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 " Disable middle click to paste
-noremap <MiddleMouse> <Nop>
-noremap <2-MiddleMouse> <Nop>
-noremap <3-MiddleMouse> <Nop>
-noremap <4-MiddleMouse> <Nop>
+map <MiddleMouse> <Nop>
+map <2-MiddleMouse> <Nop>
+map <3-MiddleMouse> <Nop>
+map <4-MiddleMouse> <Nop>
+
+nnoremap <MiddleMouse> <Nop>
+nnoremap <2-MiddleMouse> <Nop>
+nnoremap <3-MiddleMouse> <Nop>
+nnoremap <4-MiddleMouse> <Nop>
+
+inoremap <MiddleMouse> <Nop>
+inoremap <2-MiddleMouse> <Nop>
+inoremap <3-MiddleMouse> <Nop>
+inoremap <4-MiddleMouse> <Nop>
 
 " ----- Syntastic settings
 
