@@ -25,11 +25,13 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'jez/vim-better-sml'
-" Plugin 'valloric/YouCompleteMe'
+Plugin 'valloric/YouCompleteMe'
 Plugin 'wincent/Command-T'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'mhinz/vim-startify'
+Plugin 'Kazark/vim-SimpleSmoothScroll'
 
 call vundle#end()
 
@@ -65,7 +67,7 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-colorscheme base16-ocean
+colorscheme base16-oceanicnext
 filetype on
 filetype indent on
 filetype plugin on
@@ -113,6 +115,7 @@ noremap <silent> z! z=1<CR><CR>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   autocmd BufWritePre * :%s/\s\+$//e
+  autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
 endif
 
 " Make these commonly mistyped commands still work
@@ -146,6 +149,23 @@ map <C-n> :NERDTreeToggle<CR>
 " Hit ctrl+s to save
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<CR>
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+" Disable middle click to paste
+noremap <MiddleMouse> <Nop>
+noremap <2-MiddleMouse> <Nop>
+noremap <3-MiddleMouse> <Nop>
+noremap <4-MiddleMouse> <Nop>
 
 " ----- Syntastic settings
 
@@ -208,3 +228,6 @@ let g:airline#extensions#tabline#enabled = 1
 " ----- airblade/vim-gitgutter settings -----
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
+
+" ----- jez/vim-better-sml settings -----
+au Filetype sml setlocal conceallevel=2

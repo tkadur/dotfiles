@@ -40,7 +40,17 @@ alias cdd="cd ../"
 alias cddd="cd ../../"
 alias cdddd="cd ../../../"
 alias cddddd="cd ../../../../"
+alias cdddddd="cd ../../../../../"
+alias cddddddd="cd ../../../../../../"
+alias cdddddddd="cd ../../../../../../../"
+alias cdddddddd="cd ../../../../../../../../"
 alias back="cd -"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias 150="cd ~/Google\ Drive/CMU/S17/15-150/"
+  alias trash="150"
+  alias 150hw="cd ~/Google\ Drive/CMU/S17/15-150/hw"
+fi
 
 # See how much RAM Chrome is using (always helpful)
 alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
@@ -49,7 +59,13 @@ alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
 # General use stuff
 alias mine="sudo chown $(whoami)"
-alias vi="vim"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias vim="mvim -v"
+  alias vi="mvim -v"
+else
+  alias vi="vim"
+fi
+
 alias pyserver="python -m SimpleHTTPServer"
 
 # Open manpages in vim
