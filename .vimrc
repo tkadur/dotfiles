@@ -1,39 +1,33 @@
 " Ensure that we are in modern vim mode, not backwards-compatible vi mode
 set nocompatible
 set backspace=indent,eol,start
-filetype off " required for Vundle plugin manager
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'jez/vim-superman'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'vim-scripts/a.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'jez/vim-better-sml'
-Plugin 'valloric/YouCompleteMe'
-Plugin 'wincent/Command-T'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'mhinz/vim-startify'
-Plugin 'Kazark/vim-SimpleSmoothScroll'
+" Plugins go here
+Plug 'rust-lang/rust.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
+Plug 'jez/vim-superman'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'vim-scripts/a.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'jez/vim-better-sml'
+" Plug 'valloric/YouCompleteMe'
+Plug 'wincent/Command-T'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'mhinz/vim-startify'
+Plug 'Kazark/vim-SimpleSmoothScroll'
 
-call vundle#end()
+call plug#end()
 
 set encoding=utf-8
 
@@ -149,6 +143,18 @@ map <C-n> :NERDTreeToggle<CR>
 " Hit ctrl+s to save
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<CR>
+
+" Hit ctrl+x to save and quit
+inoremap <C-x> <esc>:wq<CR>
+nnoremap <C-x> :wq<CR>
+
+" Hit ctrl+q to quit
+inoremap <C-q> <esc>:q<CR>
+nnoremap <C-q> :q<CR>
+
+" Change undo/redo commands
+nnoremap <S-u> u
+nnoremap <S-r> <C-r>
 
 " vp doesn't replace paste buffer
 function! RestoreRegister()

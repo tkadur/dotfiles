@@ -48,7 +48,7 @@ alias back="cd -"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias 150="cd ~/Google\ Drive/CMU/S17/15-150/"
-  alias trash="150"
+  alias trash="cd ~/.Trash"
   alias 150hw="cd ~/Google\ Drive/CMU/S17/15-150/hw"
 fi
 
