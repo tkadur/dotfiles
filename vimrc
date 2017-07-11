@@ -1,3 +1,8 @@
+set nocompatible
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 call plug#begin('~/.vim/plugged')
 
 " Plugins go here
@@ -23,6 +28,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
 Plug 'Kazark/vim-SimpleSmoothScroll'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call plug#end()
@@ -106,7 +112,9 @@ noremap <silent> Y y$
 noremap <silent> z! z=1<CR><CR>
 
 if has("autocmd")
+  " Jump to the last known cursor position when opening a file.
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
   autocmd BufWritePre * :%s/\s\+$//e
   autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
 endif
@@ -235,7 +243,7 @@ let g:airline_detect_paste=1
 " Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
 
-" Use the base16 theme for the Airline status bar
+" Use theme for the Airline status bar
 let g:airline_theme='gruvbox'
 
 let g:airline#extensions#tabline#enabled = 1
