@@ -6,33 +6,49 @@ set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
 
 " Plugins go here
-Plug 'rust-lang/rust.vim'
+
+" Color scheme plugins
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+
+" Appearance/layout plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
-Plug 'jez/vim-superman'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'vim-scripts/a.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'jez/vim-better-sml'
-Plug 'jez/vim-c0'
-" Plug 'valloric/YouCompleteMe'
-Plug 'wincent/Command-T'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
+
+" Language plugins
+Plug 'rust-lang/rust.vim'
+Plug 'jez/vim-better-sml'
+Plug 'jez/vim-c0'
+
+" General convenience plugins
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'Kazark/vim-SimpleSmoothScroll'
-Plug 'tmux-plugins/vim-tmux'
+Plug 'vim-scripts/a.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'Yggdroot/indentLine'
+
+" Tag plugins
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
+
+" Misc plugins
+Plug 'vim-syntastic/syntastic'
+Plug 'jez/vim-superman'
+" Plug 'valloric/YouCompleteMe'
+Plug 'wincent/Command-T'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -68,8 +84,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-set background=dark
 colorscheme gruvbox
+set background=dark
 filetype on
 filetype indent on
 filetype plugin on
@@ -103,10 +119,16 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 set ignorecase
 set smartcase
 
+" Better split navigation scheme
 nnoremap <C-j> <C-w>h
 nnoremap <C-k> <C-w>j
 nnoremap <C-l> <C-w>l
 nnoremap <C-i> <C-w>k
+nnoremap <C-Left> <C-w><
+nnoremap <C-Right> <C-w>>
+nnoremap <C-Up> <C-w>+
+nnoremap <C-Down> <C-w>-
+
 
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$
@@ -261,7 +283,7 @@ au Filetype sml setlocal conceallevel=2
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
-set tags=./tags;,~/.vimtags
+set tags=./.tags;,~/.vimtags
 " Sensible defaults
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
