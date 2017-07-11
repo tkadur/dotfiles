@@ -60,11 +60,13 @@ alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 # General use stuff
 alias mine="sudo chown $(whoami)"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias vim="mvim -v"
-  alias vi="mvim -v"
+  alias vim="nvim"
+  alias vi="nvim"
 else
   alias vi="vim"
 fi
+
+alias tmux="tmux -2"
 
 alias pyserver="python -m SimpleHTTPServer"
 

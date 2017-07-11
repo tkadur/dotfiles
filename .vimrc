@@ -1,12 +1,9 @@
-" Ensure that we are in modern vim mode, not backwards-compatible vi mode
-set nocompatible
-set backspace=indent,eol,start
-
 call plug#begin('~/.vim/plugged')
 
 " Plugins go here
 Plug 'rust-lang/rust.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -26,6 +23,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
 Plug 'Kazark/vim-SimpleSmoothScroll'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call plug#end()
 
@@ -61,7 +59,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-colorscheme base16-oceanicnext
+set background=dark
+colorscheme gruvbox
 filetype on
 filetype indent on
 filetype plugin on
@@ -237,7 +236,7 @@ let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 
 " Use the base16 theme for the Airline status bar
-let g:airline_theme='base16'
+let g:airline_theme='gruvbox'
 
 let g:airline#extensions#tabline#enabled = 1
 

@@ -114,3 +114,5 @@ function prompt_command() {
 
 # Show awesome prompt only if Git is istalled
 command -v git >/dev/null 2>&1 && PROMPT_COMMAND=prompt_command
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
