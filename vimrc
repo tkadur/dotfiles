@@ -20,6 +20,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
 
 " Language plugins
 Plug 'rust-lang/rust.vim'
@@ -34,7 +35,6 @@ Plug 'tpope/vim-surround'
 Plug 'Kazark/vim-SimpleSmoothScroll'
 Plug 'vim-scripts/a.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Yggdroot/indentLine'
 
 " Tag plugins
 Plug 'xolox/vim-misc'
@@ -296,3 +296,6 @@ let g:easytags_suppress_ctags_warning = 1
 nmap <silent> <C-b> :TagbarToggle<CR>
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+" ----- Yggdroot/indentLine settings -----
+ let g:indentLine_enabled = 0
