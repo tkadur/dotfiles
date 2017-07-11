@@ -28,6 +28,3 @@ load_module ~/.scripts/omz.sh
 
 # Miscellaneous stuff
 load_module ~/.scripts/misc.sh
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
