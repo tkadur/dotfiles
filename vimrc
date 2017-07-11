@@ -21,6 +21,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jez/vim-better-sml'
+Plug 'jez/vim-c0'
 " Plug 'valloric/YouCompleteMe'
 Plug 'wincent/Command-T'
 Plug 'scrooloose/nerdtree'
@@ -29,7 +30,9 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
 Plug 'Kazark/vim-SimpleSmoothScroll'
 Plug 'tmux-plugins/vim-tmux'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -255,3 +258,19 @@ let g:airline#extensions#hunks#non_zero_only = 1
 
 " ----- jez/vim-better-sml settings -----
 au Filetype sml setlocal conceallevel=2
+
+" ----- xolox/vim-easytags settings -----
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" ----- majutsushi/tagbar settings -----
+" Open/close tagbar with \b
+nmap <silent> <C-b> :TagbarToggle<CR>
+" Uncomment to open tagbar automatically whenever possible
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
