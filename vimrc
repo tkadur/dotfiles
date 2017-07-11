@@ -125,6 +125,7 @@ command! -bang Wq wq<bang>
 command! -bang Wqa wqa<bang>
 command! -bang W w<bang>
 command! -bang Q q<bang>
+command! -bang Qa qa<bang>
 
 " Force write readonly files using sudo
 command! WS w !sudo tee %
