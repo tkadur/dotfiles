@@ -64,7 +64,11 @@ endif
 
 " Misc plugins
 Plug 'jez/vim-superman'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+if has("nvim")
+    Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+else
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
