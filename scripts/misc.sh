@@ -31,6 +31,4 @@ zstyle ':completion:*' matcher-list '' \
     'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
     'r:|?=** m:{a-z\-}={A-Z\_}'
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
