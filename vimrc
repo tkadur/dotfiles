@@ -5,9 +5,9 @@ set backspace=indent,eol,start
 
 " Autoinstall vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -88,7 +88,7 @@ set fillchars=fold:\ , " get rid of obnoxious '-' characters in folds
 set tildeop            " use ~ to toggle case as an operator, not a motion
 set colorcolumn=81     " show a column whenever textwidth is set
 if exists('&breakindent')
-  set breakindent      " Indent wrapped lines up to the same level
+    set breakindent      " Indent wrapped lines up to the same level
 endif
 
 " Show potential matches above completion, complete first immediately
@@ -100,8 +100,8 @@ set wildmode=full
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+    syntax on
+    set hlsearch
 endif
 
 colorscheme gruvbox
@@ -159,11 +159,11 @@ nnoremap <C-a> ggVG
 noremap <silent> Y y$
 
 if has("autocmd")
-  " Jump to the last known cursor position when opening a file.
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    " Jump to the last known cursor position when opening a file.
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-  " Automatically remove trailing whitespace
-  autocmd BufWritePre * :%s/\s\+$//e
+    " Automatically remove trailing whitespace
+    autocmd BufWritePre * :%s/\s\+$//e
 endif
 
 " Make these commonly mistyped commands still work
@@ -179,12 +179,12 @@ command! WS w !sudo tee %
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+    set mouse=a
 endif
 
 if exists('+termguicolors')
-  " This lets us use 24-bit "true" colors in the terminal
-  set termguicolors
+    " This lets us use 24-bit "true" colors in the terminal
+    set termguicolors
 endif
 
 " Enable italics
@@ -213,12 +213,12 @@ set undodir=~/.vim/undodir
 
 " vp doesn't replace paste buffer
 function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
+    let @" = s:restore_reg
+    return ''
 endfunction
 function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
@@ -277,10 +277,10 @@ if has("nvim")
     let g:ale_run_on_insert_leave = 1
 
     let g:ale_linters = {
-          \  'c': ['clang'],
-          \  'cpp': ['clang'],
-          \  'rust': ['rustc']
-          \}
+                \  'c': ['clang'],
+                \  'cpp': ['clang'],
+                \  'rust': ['rustc']
+                \}
 
     " Don't report refactor or convention errors
     let g:ale_python_pylint_options = '--disable=R,C'
@@ -294,8 +294,8 @@ else
     let g:syntastic_error_symbol = '✘'
     let g:syntastic_warning_symbol = "▲"
     augroup mySyntastic
-      au!
-      au FileType tex let b:syntastic_mode = "passive"
+        au!
+        au FileType tex let b:syntastic_mode = "passive"
     augroup END
 
     set statusline+=%#warningmsg#
@@ -315,11 +315,11 @@ endif
 " ----- Raimondi/delimitMate settings -----
 let delimitMate_expand_cr = 1
 augroup mydelimitMate
-  au!
-  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
-  au FileType tex let b:delimitMate_quotes = ""
-  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+    au!
+    au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+    au FileType tex let b:delimitMate_quotes = ""
+    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+    au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
 " ----- bling/vim-airline settings -----
@@ -369,4 +369,4 @@ nmap <silent> <C-b> :TagbarToggle<CR>
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " ----- Yggdroot/indentLine settings -----
- let g:indentLine_enabled = 0
+let g:indentLine_enabled = 0

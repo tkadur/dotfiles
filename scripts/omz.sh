@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Ugly, disgusting hack (Part 1)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ZSH_THEME="pure"
+    ZSH_THEME="pure"
 fi
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -29,8 +29,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Ugly, disgusting hack (Part 2)
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  autoload -U promptinit; promptinit
-  prompt pure
+    autoload -U promptinit; promptinit
+    prompt pure
 
-  export PATH="/Users/Thejas/cc0/bin:$PATH"
+    export PATH="/Users/Thejas/cc0/bin:$PATH"
 fi

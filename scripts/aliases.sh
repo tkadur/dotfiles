@@ -1,9 +1,9 @@
 # color support for ls and grep
 alias grep='grep --color=auto'
 if [[ `uname` = "Darwin" || `uname` = "FreeBSD" ]]; then
-  alias ls='ls -G'
+    alias ls='ls -G'
 else
-  alias ls='ls --color=auto'
+    alias ls='ls --color=auto'
 fi
 
 # killz <program name> -- Kills all programs with the given program name
@@ -47,9 +47,9 @@ alias cdddddddd="cd ../../../../../../../../"
 alias back="cd -"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias 150="cd ~/Google\ Drive/CMU/S17/15-150/"
-  alias trash="cd ~/.Trash"
-  alias 150hw="cd ~/Google\ Drive/CMU/S17/15-150/hw"
+    alias 150="cd ~/Google\ Drive/CMU/S17/15-150/"
+    alias trash="cd ~/.Trash"
+    alias 150hw="cd ~/Google\ Drive/CMU/S17/15-150/hw"
 fi
 
 # See how much RAM Chrome is using (always helpful)
@@ -60,10 +60,10 @@ alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 # General use stuff
 alias mine="sudo chown $(whoami)"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias vim="nvim"
-  alias vi="nvim"
+    alias vim="nvim"
+    alias vi="nvim"
 else
-  alias vi="vim"
+    alias vi="vim"
 fi
 
 alias tmux="tmux -2"
@@ -72,22 +72,22 @@ alias pyserver="python -m SimpleHTTPServer"
 
 # Open manpages in vim
 vman() {
-  vim -c "SuperMan $*"
+    vim -c "SuperMan $*"
 
-  if [ "$?" != "0" ]; then
-    echo "No manual entry for $*"
-  fi
+    if [ "$?" != "0" ]; then
+        echo "No manual entry for $*"
+    fi
 }
 
 # Open i3 config file
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  alias i3config="vim ~/.config/i3/config"
+    alias i3config="vim ~/.config/i3/config"
 fi
 
 # Syncing data with Andrew servers
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
-  alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
-  alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
-  alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+    alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
+    alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
+    alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
+    alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 fi
