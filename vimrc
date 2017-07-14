@@ -60,7 +60,7 @@ if has("nvim")
     Plug 'sebastianmarkow/deoplete-rust'
     Plug 'zchee/deoplete-asm'
 else
-    Plug 'valloric/YouCompleteMe'
+    Plug 'vim-syntastic/syntastic'
 endif
 
 " Misc plugins
