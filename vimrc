@@ -3,6 +3,13 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" Autoinstall vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 " Plugins go here
@@ -42,15 +49,17 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 
-" Syntax/completion plugins
-Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/neoinclude.vim'
-Plug 'zchee/deoplete-clang'
-Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-asm'
+if has("nvim")
+    " Syntax/completion plugins
+    Plug 'w0rp/ale'
+    Plug 'ervandew/supertab'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    Plug 'Shougo/neoinclude.vim'
+    Plug 'zchee/deoplete-clang'
+    Plug 'sebastianmarkow/deoplete-rust'
+    Plug 'zchee/deoplete-asm'
+endif
 
 " Misc plugins
 Plug 'jez/vim-superman'
@@ -100,13 +109,9 @@ set background=dark
 set showcmd
 
 " Spaces masterrace
-
 filetype plugin indent on
-" show existing tab with 4 spaces width
 set tabstop=4
-" when indenting with '>', use 4 spaces width
 set shiftwidth=4
-" On pressing tab, insert 4 spaces
 set expandtab
 
 " Better line navigation scheme
@@ -151,13 +156,11 @@ nnoremap <C-a> ggVG
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$
 
-" take first suggested spelling as correct spelling and replace
-noremap <silent> z! z=1<CR><CR>
-
 if has("autocmd")
   " Jump to the last known cursor position when opening a file.
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+  " Automatically remove trailing whitespace
   autocmd BufWritePre * :%s/\s\+$//e
 endif
 
@@ -202,6 +205,10 @@ nnoremap <C-q> :q<CR>
 nnoremap <S-u> u
 nnoremap <S-r> <C-r>
 
+" Persistent undo
+set undofile
+set undodir=~/.vim/undodir
+
 " vp doesn't replace paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
@@ -229,50 +236,53 @@ inoremap <2-MiddleMouse> <Nop>
 inoremap <3-MiddleMouse> <Nop>
 inoremap <4-MiddleMouse> <Nop>
 
-" ----- Shougo/deoplete.nvim settings -----
+if has("nvim")
 
-let g:deoplete#enable_at_startup = 1
+    " ----- Shougo/deoplete.nvim settings -----
 
-"C/C++
-let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
-let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang"
+    let g:deoplete#enable_at_startup = 1
 
-" Rust
-let g:deoplete#sources#rust#racer_binary='/Users/Thejas/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/Users/Thejas/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+    "C/C++
+    let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+    let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang"
 
-autocmd FileType tex let b:deoplete_disable_auto_complete = 1
-autocmd FileType sml let b:deoplete_disable_auto_complete = 1
+    " Rust
+    let g:deoplete#sources#rust#racer_binary='/Users/Thejas/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path='/Users/Thejas/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
-set completeopt+=noinsert
+    autocmd FileType tex let b:deoplete_disable_auto_complete = 1
+    autocmd FileType sml let b:deoplete_disable_auto_complete = 1
 
-" Auto close preview
-autocmd CompleteDone * silent! pclose!
+    set completeopt+=noinsert
 
-" ----- ervandew/supertab settings -----
-let g:SuperTabDefaultCompletionType = "<c-n>"
+    " Auto close preview
+    autocmd CompleteDone * silent! pclose!
+
+    " ----- ervandew/supertab settings -----
+    let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
-" ----- w0rp/ale settings -----
+    " ----- w0rp/ale settings -----
 
-" We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
-hi clear SignColumn
+    " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
+    hi clear SignColumn
 
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '▲'
-let g:ale_open_list = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_run_on_insert_leave = 1
+    let g:ale_sign_column_always = 1
+    let g:ale_sign_error = '✘'
+    let g:ale_sign_warning = '▲'
+    let g:ale_open_list = 1
+    let g:ale_lint_on_text_changed = 'never'
+    let g:ale_run_on_insert_leave = 1
 
-let g:ale_linters = {
-      \  'c': ['clang'],
-      \  'cpp': ['clang'],
-      \  'rust': ['rustc']
-      \}
+    let g:ale_linters = {
+          \  'c': ['clang'],
+          \  'cpp': ['clang'],
+          \  'rust': ['rustc']
+          \}
 
-" Don't report refactor or convention errors
-let g:ale_python_pylint_options = '--disable=R,C'
+    " Don't report refactor or convention errors
+    let g:ale_python_pylint_options = '--disable=R,C'
+endif
 
 " ----- jez/vim-superman settings -----
 " better man page support
