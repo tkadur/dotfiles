@@ -13,14 +13,15 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 
 " Appearance/layout plugins
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Language plugins
 Plug 'rust-lang/rust.vim'
@@ -34,18 +35,26 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Kazark/vim-SimpleSmoothScroll'
 Plug 'vim-scripts/a.vim'
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'mbbill/undotree'
 
 " Tag plugins
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 
+" Syntax/completion plugins
+Plug 'w0rp/ale'
+Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/neoinclude.vim'
+Plug 'zchee/deoplete-clang'
+Plug 'sebastianmarkow/deoplete-rust'
+Plug 'zchee/deoplete-asm'
+
 " Misc plugins
-Plug 'vim-syntastic/syntastic'
 Plug 'jez/vim-superman'
-" Plug 'valloric/YouCompleteMe'
-Plug 'wincent/Command-T'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -66,7 +75,7 @@ set splitbelow         " Horizontal splits  use  bottom half  of screen
 set timeoutlen=1000    " Lower ^[ timeout
 set fillchars=fold:\ , " get rid of obnoxious '-' characters in folds
 set tildeop            " use ~ to toggle case as an operator, not a motion
-" set colorcolumn=+0     " show a column whenever textwidth is set
+set colorcolumn=81     " show a column whenever textwidth is set
 if exists('&breakindent')
   set breakindent      " Indent wrapped lines up to the same level
 endif
@@ -86,18 +95,19 @@ endif
 
 colorscheme gruvbox
 set background=dark
-filetype on
-filetype indent on
-filetype plugin on
-
-" Indent as intelligently as vim knows how
-set smartindent
 
 " Show multicharacter commands as they are being typed
 set showcmd
 
 " Spaces masterrace
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
 " Better line navigation scheme
 noremap j h
@@ -129,6 +139,14 @@ nnoremap <C-Right> <C-w>>
 nnoremap <C-Up> <C-w>+
 nnoremap <C-Down> <C-w>-
 
+" Common keyboard shortcuts
+noremap <C-f> /
+inoremap <C-o> <esc>:FZF<CR>
+nnoremap <C-o> :FZF<CR>
+inoremap <C-U> <esc>:UndotreeToggle<CR>
+nnoremap <C-U> :UndotreeToggle<CR>
+inoremap <C-a> <esc>ggVG
+nnoremap <C-a> ggVG
 
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$
@@ -141,7 +159,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
   autocmd BufWritePre * :%s/\s\+$//e
-  autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
 endif
 
 " Make these commonly mistyped commands still work
@@ -176,10 +193,6 @@ map <C-n> :NERDTreeToggle<CR>
 " Hit ctrl+s to save
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<CR>
-
-" Hit ctrl+x to save and quit
-inoremap <C-x> <esc>:wq<CR>
-nnoremap <C-x> :wq<CR>
 
 " Hit ctrl+q to quit
 inoremap <C-q> <esc>:q<CR>
@@ -216,31 +229,54 @@ inoremap <2-MiddleMouse> <Nop>
 inoremap <3-MiddleMouse> <Nop>
 inoremap <4-MiddleMouse> <Nop>
 
-" ----- Syntastic settings
+" ----- Shougo/deoplete.nvim settings -----
+
+let g:deoplete#enable_at_startup = 1
+
+"C/C++
+let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang"
+
+" Rust
+let g:deoplete#sources#rust#racer_binary='/Users/Thejas/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/Thejas/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+
+autocmd FileType tex let b:deoplete_disable_auto_complete = 1
+autocmd FileType sml let b:deoplete_disable_auto_complete = 1
+
+set completeopt+=noinsert
+
+" Auto close preview
+autocmd CompleteDone * silent! pclose!
+
+" ----- ervandew/supertab settings -----
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+
+" ----- w0rp/ale settings -----
 
 " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
 hi clear SignColumn
 
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-  au!
-  au FileType tex let b:syntastic_mode = "passive"
-augroup END
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '▲'
+let g:ale_open_list = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_run_on_insert_leave = 1
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:ale_linters = {
+      \  'c': ['clang'],
+      \  'cpp': ['clang'],
+      \  'rust': ['rustc']
+      \}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
+" Don't report refactor or convention errors
+let g:ale_python_pylint_options = '--disable=R,C'
 
 " ----- jez/vim-superman settings -----
 " better man page support
-noremap K :SuperMan <cword><CR>
+" noremap K :SuperMan <cword><CR>
 
 " ----- Raimondi/delimitMate settings -----
 let delimitMate_expand_cr = 1
@@ -273,6 +309,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='gruvbox'
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " ----- airblade/vim-gitgutter settings -----
 " In vim-airline, only display "hunks" if the diff is non-zero
