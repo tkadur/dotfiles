@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 
 " Color scheme plugins
 Plug 'chriskempson/base16-vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 
 " Appearance/layout plugins
