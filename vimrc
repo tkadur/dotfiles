@@ -59,6 +59,8 @@ if has("nvim")
     Plug 'zchee/deoplete-clang'
     Plug 'sebastianmarkow/deoplete-rust'
     Plug 'zchee/deoplete-asm'
+else
+    Plug 'valloric/YouCompleteMe'
 endif
 
 " Misc plugins
@@ -282,6 +284,28 @@ if has("nvim")
 
     " Don't report refactor or convention errors
     let g:ale_python_pylint_options = '--disable=R,C'
+else
+
+    " ----- Syntastic settings
+
+    " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
+    hi clear SignColumn
+
+    let g:syntastic_error_symbol = '✘'
+    let g:syntastic_warning_symbol = "▲"
+    augroup mySyntastic
+      au!
+      au FileType tex let b:syntastic_mode = "passive"
+    augroup END
+
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 endif
 
 " ----- jez/vim-superman settings -----
