@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Ugly, disgusting hack (Part 1)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    ZSH_THEME="pure"
+    ZSH_THEME="refined"
 fi
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
