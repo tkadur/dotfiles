@@ -13,6 +13,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 
 " Appearance/layout plugins
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -20,8 +22,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Language plugins
 Plug 'rust-lang/rust.vim'
@@ -143,8 +143,8 @@ nnoremap <C-Down> <C-w>-
 noremap <C-f> /
 inoremap <C-o> <esc>:FZF<CR>
 nnoremap <C-o> :FZF<CR>
-inoremap <C-U> <esc>:UndotreeToggle<CR>
-nnoremap <C-U> :UndotreeToggle<CR>
+inoremap <C-u> <esc>:UndotreeToggle<CR>
+nnoremap <C-u> :UndotreeToggle<CR>
 inoremap <C-a> <esc>ggVG
 nnoremap <C-a> ggVG
 
