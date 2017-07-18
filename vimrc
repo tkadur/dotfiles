@@ -153,8 +153,8 @@ nnoremap <C-Down> <C-w>-
 noremap <C-f> /
 inoremap <C-o> <esc>:FZF<CR>
 nnoremap <C-o> :FZF<CR>
-inoremap <C-u> <esc>:UndotreeToggle<CR>
-nnoremap <C-u> :UndotreeToggle<CR>
+inoremap <C-i> <esc>:UndotreeToggle<CR>
+nnoremap <C-i> :UndotreeToggle<CR>
 inoremap <C-a> <esc>ggVG
 nnoremap <C-a> ggVG
 
