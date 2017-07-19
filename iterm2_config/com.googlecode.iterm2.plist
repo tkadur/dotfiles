@@ -4,6 +4,8 @@
 <dict>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -2603,11 +2605,13 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>497 408 228 297 0 0 1920 1057 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>480 301 960 360 0 0 1920 1057 </string>
+	<string>479 351 960 226 0 0 1920 1057 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>630 480 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>610 327 700 622 0 0 1920 1057 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>524 395 606 469 0 0 1920 1057 </string>
+	<string>269 207 606 469 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>515 587 918 416 0 0 1920 1057 </string>
 	<key>NSWindow Frame com.apple.typography_panel_MenloForPowerline-Regular</key>
@@ -3447,7 +3451,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-07-12T23:55:27Z</date>
+	<date>2017-07-18T03:48:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3483,7 +3487,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.20170712-nightly</string>
+	<string>3.1.20170717-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
