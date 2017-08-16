@@ -17,6 +17,9 @@ alias mv='mv -v'
 # Print name of shell currently being used
 alias shell='ps -p $$ -o comm='
 
+# What else would you use ps for
+alias psg="ps aux | grep"
+
 # Enable "up" for previous commands
 alias sml='rlwrap sml'
 alias math='rlwrap MathKernel'
@@ -65,6 +68,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     alias vi="vim"
 fi
+alias vvim="\vim"
 
 alias tmux="tmux -2"
 

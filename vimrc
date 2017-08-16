@@ -26,7 +26,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/indentLine'
 Plug 'ryanoasis/vim-devicons'
 
 " Language plugins
@@ -44,14 +43,28 @@ Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
 
 " Tag plugins
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits,traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
 
+
+" Syntax/completion plugins
 if has("nvim")
-    " Syntax/completion plugins
     Plug 'w0rp/ale'
     Plug 'ervandew/supertab'
+    Plug 'Shougo/echodoc.vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
     Plug 'Shougo/neoinclude.vim'
@@ -75,49 +88,46 @@ Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
+filetype plugin indent on " attempt to determine file type
+syntax on                 " enable syntax highlighting
+
 set encoding=utf-8
-
-set history=1000       " keep 1000 lines of command line history
-set number             " line numbers
-set ruler              " show the cursor position all the time
-set showcmd            " display incomplete commands
-set incsearch          " do incremental searching
-set linebreak          " wrap lines on 'word' boundaries
-set scrolloff=3        " don't let the cursor touch the edge of the viewport
-set splitright         "   Vertical splits  use   right half  of screen
-set splitbelow         " Horizontal splits  use  bottom half  of screen
-set timeoutlen=1000    " Lower ^[ timeout
-set fillchars=fold:\ , " get rid of obnoxious '-' characters in folds
-set tildeop            " use ~ to toggle case as an operator, not a motion
-set colorcolumn=81     " show a column whenever textwidth is set
+set history=1000          " keep 1000 lines of command line history
+set number                " line numbers
+set ruler                 " show the cursor position all the time
+set showcmd               " display incomplete commands
+set incsearch             " do incremental searching
+set linebreak             " wrap lines on 'word' boundaries
+set scrolloff=3           " don't let the cursor touch the edge of the viewport
+set splitright            " Vertical splits  use   right half  of screen
+set splitbelow            " Horizontal splits  use  bottom half  of screen
+set timeoutlen=1000       " Lower ^[ timeout
+set fillchars=fold:\ ,    " get rid of obnoxious '-' characters in folds
+set tildeop               " use ~ to toggle case as an operator, not a motion
+set colorcolumn=81        " show a column whenever textwidth is set
+" set clipboard=unnamedplus " use system keyboard
+set hidden                " buffer becomes hidden when it is abandoned
+set wildmenu              " visual autocomplete for command menu
+set wildmode=full         " complete first match immediately
+set lazyredraw            " only redraw when necessary
+set ttyfast               " always assume a fast terminal
+set showmatch             " show matching brackets
+set report=0              " always report changed lines
 if exists('&breakindent')
-    set breakindent      " Indent wrapped lines up to the same level
+  set breakindent         " Indent wrapped lines up to the same level
 endif
 
-" Show potential matches above completion, complete first immediately
-set wildmenu
-set wildmode=full
-
-"Enable filetype detection and syntax highlighting
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-    syntax on
-    set hlsearch
-endif
-
+" Colors
 colorscheme gruvbox
 set background=dark
 
-" Show multicharacter commands as they are being typed
-set showcmd
-
 " Spaces masterrace
-filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=2     " number of visual spaces per tab
+set softtabstop=2 " number of spaces per tab when editing
+set shiftwidth=2  " number of spaces for each step of autoindent
+set expandtab     " tabs are spaces
+set shiftround    " round to multiple of shiftwidth when adjusting indentation
+set autoindent    " auto indent on a new line
 
 " Better line navigation scheme
 noremap j h
@@ -130,14 +140,13 @@ noremap <silent> ^ g^
 noremap <silent> _ g_
 
 " Incremental search
-set incsearch
+set incsearch  " search as characters are entered
+set hlsearch   " highlight matches
+set ignorecase " ignore case when searching lowercase
+set smartcase  " don't ignore case when inserting uppercase characters
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
-
-" Smart case-sensitivity
-set ignorecase
-set smartcase
 
 " Better split navigation scheme
 nnoremap <C-j> <C-w>h
@@ -153,8 +162,6 @@ nnoremap <C-Down> <C-w>-
 noremap <C-f> /
 inoremap <C-o> <esc>:FZF<CR>
 nnoremap <C-o> :FZF<CR>
-inoremap <C-i> <esc>:UndotreeToggle<CR>
-nnoremap <C-i> :UndotreeToggle<CR>
 inoremap <C-a> <esc>ggVG
 nnoremap <C-a> ggVG
 
@@ -167,6 +174,12 @@ if has("autocmd")
 
     " Automatically remove trailing whitespace
     autocmd BufWritePre * :%s/\s\+$//e
+
+    " Automatically close loclist when no files open
+    autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
+
+    " Automatically close deoplete preview window
+    autocmd CompleteDone * silent! pclose!
 endif
 
 " Make these commonly mistyped commands still work
@@ -253,19 +266,20 @@ if has("nvim")
 
     " Rust
     let g:deoplete#sources#rust#racer_binary='/Users/Thejas/.cargo/bin/racer'
-    let g:deoplete#sources#rust#rust_source_path='/Users/Thejas/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+    let g:deoplete#sources#rust#rust_source_path='/Users/Thejas/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
+    " let g:deoplete#sources = {}
+    " let g:deoplete#sources._ = ['tag']
+
+    autocmd FileType txt let b:deoplete_disable_auto_complete = 1
     autocmd FileType tex let b:deoplete_disable_auto_complete = 1
-    autocmd FileType sml let b:deoplete_disable_auto_complete = 1
+    autocmd FileType md let b:deoplete_disable_auto_complete = 1
 
     set completeopt+=noinsert
-
-    " Auto close preview
-    autocmd CompleteDone * silent! pclose!
+    " set completeopt-=preview
 
     " ----- ervandew/supertab settings -----
     let g:SuperTabDefaultCompletionType = "<c-n>"
-
 
     " ----- w0rp/ale settings -----
 
@@ -278,6 +292,7 @@ if has("nvim")
     let g:ale_open_list = 1
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_run_on_insert_leave = 1
+
 
     let g:ale_linters = {
                 \  'c': ['clang'],
@@ -309,6 +324,8 @@ else
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
+
+    let g:syntastic_rust_checkers = ['rustc']
 endif
 
 " ----- jez/vim-superman settings -----
@@ -354,22 +371,10 @@ let g:airline#extensions#hunks#non_zero_only = 1
 
 " ----- jez/vim-better-sml settings -----
 au Filetype sml setlocal conceallevel=2
-
-" ----- xolox/vim-easytags settings -----
-" Where to look for tags files
-set tags=./.tags;,~/.vimtags
-" Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
-
+"
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
 nmap <silent> <C-b> :TagbarToggle<CR>
+let g:tagbar_sort = 0
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
-
-" ----- Yggdroot/indentLine settings -----
-let g:indentLine_enabled = 0
