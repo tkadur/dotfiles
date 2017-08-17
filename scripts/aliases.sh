@@ -100,3 +100,5 @@ vman() {
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias i3config="vim ~/.config/i3/config"
 fi
+
+alias fcl="fortune | cowsay | lolcat"
