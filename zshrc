@@ -26,10 +26,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Custom aliases
-load_module ~/.scripts/aliases.sh
+load_module ~/.zsh/aliases.sh
 
 # Oh-my-zsh configuration
-load_module ~/.scripts/omz.sh
+load_module ~/.zsh/omz.sh
 
 # Miscellaneous stuff
-load_module ~/.scripts/misc.sh
+load_module ~/.zsh/misc.sh

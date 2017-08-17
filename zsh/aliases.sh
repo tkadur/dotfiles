@@ -1,9 +1,9 @@
 # color support for ls and grep
 alias grep='grep --color=auto'
-if [[ `uname` = "Darwin" || `uname` = "FreeBSD" ]]; then
-    alias ls='ls -G'
+if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "freebsd"* ]]; then
+	alias ls='ls -G'
 else
-    alias ls='ls --color=auto'
+	alias ls='ls --color=auto'
 fi
 
 # killz <program name> -- Kills all programs with the given program name
@@ -63,23 +63,20 @@ alias ........="cd ../../../../../../../"
 alias ........="cd ../../../../../../../../"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias 150="cd ~/Google\ Drive/CMU/S17/15-150/"
-    alias trash="cd ~/.Trash"
-    alias 150hw="cd ~/Google\ Drive/CMU/S17/15-150/hw"
+	alias trash="cd ~/.Trash"
 fi
 
 # See how much RAM Chrome is using (always helpful)
 alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
 alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
-
 # General use stuff
 alias mine="sudo chown $(whoami)"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias vim="nvim"
-    alias vi="nvim"
+	alias vim="nvim"
+	alias vi="nvim"
 else
-    alias vi="vim"
+	alias vi="vim"
 fi
 alias vvim="\vim"
 
@@ -89,14 +86,9 @@ alias pyserver="python -m SimpleHTTPServer"
 
 # Open manpages in vim
 vman() {
-    vim -c "SuperMan $*"
+	vim -c "SuperMan $*"
 
-    if [ "$?" != "0" ]; then
-        echo "No manual entry for $*"
-    fi
+	if [ "$?" != "0" ]; then
+		echo "No manual entry for $*"
+	fi
 }
-
-# Open i3 config file
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    alias i3config="vim ~/.config/i3/config"
-fi
