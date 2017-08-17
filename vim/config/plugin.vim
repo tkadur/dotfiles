@@ -180,3 +180,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 call plug#end()
+
+" Colors (must be set after vim-plug loads themes)
+colorscheme gruvbox
+set background=dark
