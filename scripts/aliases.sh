@@ -20,6 +20,9 @@ alias shell='ps -p $$ -o comm='
 # What else would you use ps for
 alias psg="ps aux | grep"
 
+# Git status
+alias gst="git status"
+
 # Enable "up" for previous commands
 alias sml='rlwrap sml'
 alias math='rlwrap MathKernel'
@@ -48,6 +51,16 @@ alias cddddddd="cd ../../../../../../"
 alias cdddddddd="cd ../../../../../../../"
 alias cdddddddd="cd ../../../../../../../../"
 alias back="cd -"
+
+# Alternate navigation scheme
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+alias ......="cd ../../../../../"
+alias .......="cd ../../../../../../"
+alias ........="cd ../../../../../../../"
+alias ........="cd ../../../../../../../../"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias 150="cd ~/Google\ Drive/CMU/S17/15-150/"
@@ -86,12 +99,4 @@ vman() {
 # Open i3 config file
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias i3config="vim ~/.config/i3/config"
-fi
-
-# Syncing data with Andrew servers
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias sync-from-andrew='rsync -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server/"'
-    alias sync-from-andrew-dry-run='rsync --dry-run -avz -e ssh --progress andrew:~/private "/Users/Thejas/Google Drive/CMU/andrew_server"'
-    alias sync-to-andrew='rsync -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
-    alias sync-to-andrew-dry-run='rsync --dry-run -avz -e ssh --progress "/Users/Thejas/Google Drive/CMU/andrew_server/private" andrew:~'
 fi

@@ -5,9 +5,7 @@ export EDITOR='nvim'
 export TERM=xterm-256color
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-export RANGER_LOAD_DEFAULT_RC=FALSE
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Fix weird formatting issues
 export LC_ALL="en_US.UTF-8"

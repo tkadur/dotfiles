@@ -20,6 +20,11 @@ load_module() {
 # Guard against non-interactive logins
 [ -z "$PS1" ] && return
 
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 # Custom aliases
 load_module ~/.scripts/aliases.sh
 
