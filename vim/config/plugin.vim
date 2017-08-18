@@ -66,6 +66,7 @@ Plug 'Raimondi/delimitMate'
 augroup END
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sleuth'
 Plug 'Kazark/vim-SimpleSmoothScroll'
 Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
@@ -95,7 +96,7 @@ Plug 'majutsushi/tagbar'
       \}
 
 " Syntax/completion plugins
-if has("nvim")
+if has("nvim") || v:version >= 800
     Plug 'w0rp/ale'
       " ----- w0rp/ale settings -----
       " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
@@ -109,11 +110,11 @@ if has("nvim")
       let g:ale_linters = {
                   \  'c': ['clang'],
                   \  'cpp': ['clang'],
-                  \  'rust': ['rustc']
+                  \  'rust': ['cargo']
                   \}
       " Don't report refactor or convention errors
       let g:ale_python_pylint_options = '--disable=R,C'
-
+elseif has("nvim")
     Plug 'ervandew/supertab'
       " ----- ervandew/supertab settings -----
       let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -162,7 +163,7 @@ else
       let g:syntastic_auto_loc_list = 1
       let g:syntastic_check_on_open = 1
       let g:syntastic_check_on_wq = 0
-      let g:syntastic_rust_checkers = ['rustc']
+      let g:syntastic_rust_checkers = ['cargo']
 endif
 
 " Misc plugins

@@ -1,9 +1,9 @@
 # color support for ls and grep
 alias grep='grep --color=auto'
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "freebsd"* ]]; then
-	alias ls='ls -G'
+  alias ls='ls -G'
 else
-	alias ls='ls --color=auto'
+  alias ls='ls --color=auto'
 fi
 
 # killz <program name> -- Kills all programs with the given program name
@@ -63,7 +63,7 @@ alias ........="cd ../../../../../../../"
 alias ........="cd ../../../../../../../../"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	alias trash="cd ~/.Trash"
+  alias trash="cd ~/.Trash"
 fi
 
 # See how much RAM Chrome is using (always helpful)
@@ -72,13 +72,16 @@ alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
 # General use stuff
 alias mine="sudo chown $(whoami)"
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	alias vim="nvim"
-	alias vi="nvim"
-else
-	alias vi="vim"
+if [ -x "$(command -v foo)" ]; then
+  alias vim="nvim"
 fi
+alias vi="vim"
 alias vvim="\vim"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias vim_builtin="/usr/bin/vim"
+  alias mvim="mvim -v"
+fi
 
 alias tmux="tmux -2"
 
@@ -86,9 +89,9 @@ alias pyserver="python -m SimpleHTTPServer"
 
 # Open manpages in vim
 vman() {
-	vim -c "SuperMan $*"
+  vim -c "SuperMan $*"
 
-	if [ "$?" != "0" ]; then
-		echo "No manual entry for $*"
-	fi
+  if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+  fi
 }
