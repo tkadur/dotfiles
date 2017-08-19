@@ -30,12 +30,12 @@ endif
 "
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-    set mouse=a
+  set mouse=a
 endif
 
 " This lets us use 24-bit "true" colors in the terminal
 if exists('+termguicolors')
-    set termguicolors
+  set termguicolors
 endif
 
 " Spaces masterrace
@@ -63,27 +63,24 @@ let &t_ZR="\e[23m"
 highlight Comment cterm=italic
 
 if has("autocmd")
-    " Jump to the last known cursor position when opening a file.
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  " Jump to the last known cursor position when opening a file.
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    " Automatically remove trailing whitespace
-    autocmd BufWritePre * :%s/\s\+$//e
+  " Automatically remove trailing whitespace
+  au BufWritePre * :%s/\s\+$//e
 
-    " Automatically close loclist when no files open
-    autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
-
-    " Automatically close deoplete preview window
-    autocmd CompleteDone * silent! pclose!
+  " Automatically close loclist when no files open
+  au WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 endif
 
 
 " vp doesn't replace paste buffer
 function! RestoreRegister()
-    let @" = s:restore_reg
-    return ''
+  let @" = s:restore_reg
+  return ''
 endfunction
 function! s:Repl()
-    let s:restore_reg = @"
-    return "p@=RestoreRegister()\<cr>"
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()

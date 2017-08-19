@@ -1,0 +1,4 @@
+source ~/.sh/common.sh
+
+# Zsh-specific config
+load_module ~/.zsh/zsh_specific.zsh
