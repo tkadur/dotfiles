@@ -72,7 +72,7 @@ alias chromemem="echo 'Chrome is using $(chromemem)% of memory.'"
 
 # General use stuff
 alias mine="sudo chown $(whoami)"
-if [ -x "$(command -v foo)" ]; then
+if [ -x "$(command -v nvim)" ]; then
   alias vim="nvim"
 fi
 alias vi="vim"
