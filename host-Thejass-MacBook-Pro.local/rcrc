@@ -1,2 +1,2 @@
 EXCLUDES="tags README.md"
-TAGS="macos"
+TAGS="nvim"

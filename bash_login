@@ -1,7 +1,7 @@
 # Print a random, hopefully interesting, adage.
-if (( $+commands[fortune] && $+commands[cowsay] )); then
+if [ -x "$(command -v fortune)" ] && [ -x "$(command -v cowsay)" ]; then
   if [[ -t 0 || -t 1 ]]; then
   	fortune -s | cowsay
-    print
+    printf ""
   fi
 fi

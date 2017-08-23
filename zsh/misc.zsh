@@ -4,12 +4,3 @@ zstyle ':completion:*' matcher-list '' \
 	'm:{a-z\-}={A-Z\_}' \
 	'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
 	'r:|?=** m:{a-z\-}={A-Z\_}'
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-fi
-
-# Autocomplete hidden files
-# setopt globdots
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
