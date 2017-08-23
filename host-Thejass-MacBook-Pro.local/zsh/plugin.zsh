@@ -1,16 +1,35 @@
-#
-# Sets Prezto options.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+source $ANTIGEN_DIR/antigen.zsh
 
-#
+# Load the oh-my-zsh's library
+antigen use prezto
+
+antigen bundles <<EOBUNDLES
+    # Bundles from the default repo
+    environment
+    terminal
+    history
+    directory
+    utility
+    ssh
+    tmux
+    completion
+    homebrew
+    osx
+    git
+    command-not-found
+    syntax-highlighting
+    history-substring-search
+    prompt
+EOBUNDLES
+
+antigen theme pure
+
+# Sets Prezto options.
+
 # General
-#
 
 # Set case-sensitivity for completion, history lookup, etc.
-# zstyle ':prezto:*:*' case-sensitive 'yes'
+zstyle ':prezto:*:*' case-sensitive 'no'
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
@@ -21,70 +40,12 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Zsh functions to load (man zshcontrib).
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
-# Set the Prezto modules to load (browse modules).
-# The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'ssh' \
-  'tmux' \
-  'completion' \
-  'homebrew' \
-  'osx' \
-  'git' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt'
-
-#
-# Autosuggestions
-#
-
-# Set the query found color.
-# zstyle ':prezto:module:autosuggestions:color' found ''
-
-#
-# Completions
-#
-
-# Set the entries to ignore in static */etc/hosts* for host completion.
-# zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
-#   '0.0.0.0' '127.0.0.1'
-
-#
-# Editor
-#
-
-# Set the key mapping style to 'emacs' or 'vi'.
-# zstyle ':prezto:module:editor' key-bindings 'vi'
-
-# Auto convert .... to ../..
-# zstyle ':prezto:module:editor' dot-expansion 'yes'
-
-# Allow the zsh prompt context to be shown.
-# zstyle ':prezto:module:editor' ps-context 'yes'
-
-#
 # Git
-#
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
-#
-# GNU Utility
-#
-
-# Set the command prefix on non-GNU systems.
-# zstyle ':prezto:module:gnu-utility' prefix 'g'
-
-#
 # History Substring Search
-#
 
 # Set the query found color.
 # zstyle ':prezto:module:history-substring-search:color' found ''
@@ -96,43 +57,20 @@ zstyle ':prezto:load' pmodule \
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
-# OS X
-#
-
-# Set the keyword used by `mand` to open man pages in Dash.app
-# zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
-
-#
 # Pacman
 #
 
 # Set the Pacman frontend.
 # zstyle ':prezto:module:pacman' frontend 'yaourt'
 
-#
 # Prompt
-#
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'pure'
 
-# Set the working directory prompt display length.
-# By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
-# for longer or 'full' (with '~' expansion) for even longer prompt display.
-# zstyle ':prezto:module:prompt' pwd-length 'short'
-
-#
-# Ruby
-#
-
-# Auto switch the Ruby version on directory change.
-# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
-
-#
 # Python
-#
 
 # Auto switch the Python virtualenv on directory change.
 # zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
@@ -140,26 +78,12 @@ zstyle ':prezto:module:prompt' theme 'pure'
 # Automatically initialize virtualenvwrapper if pre-requisites are met.
 # zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 
-#
-# Screen
-#
-
-# Auto start a session when Zsh is launched in a local terminal.
-# zstyle ':prezto:module:screen:auto-start' local 'yes'
-
-# Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:screen:auto-start' remote 'yes'
-
-#
 # SSH
-#
 
 # Set the SSH identities to load into the agent.
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
-#
 # Syntax Highlighting
-#
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
@@ -181,9 +105,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # zstyle ':prezto:module:syntax-highlighting' pattern \
 #   'rm*-rf*' 'fg=white,bold,bg=red'
 
-#
 # Terminal
-#
 
 # Auto set the tab and window titles.
 # zstyle ':prezto:module:terminal' auto-title 'yes'
@@ -197,9 +119,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # Set the terminal multiplexer title format.
 # zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
 
-#
 # Tmux
-#
 
 # Auto start a session when Zsh is launched in a local terminal.
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
@@ -213,11 +133,12 @@ zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
 
-#
 # Utility
-#
 
 # Enabled safe options. This aliases cp, ln, mv and rm so that they prompt
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
-zstyle ':prezto:module:utility' safe-ops 'yes'
+zstyle ':prezto:module:utility' safe-ops 'no'
+
+# Tell antigen that you're done
+antigen apply

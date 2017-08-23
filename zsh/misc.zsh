@@ -1,8 +1,3 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Add fuzzy matching to completion
 # From http://superuser.com/a/815317
 zstyle ':completion:*' matcher-list '' \
@@ -15,6 +10,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Autocomplete hidden files
-setopt globdots
+# setopt globdots
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
