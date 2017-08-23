@@ -78,8 +78,7 @@ fi
 alias vi="vim"
 alias vvim="\vim"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias vim_builtin="/usr/bin/vim"
+if [ -x "$(command -v mvim)" ]; then
   alias mvim="mvim -v"
 fi
 

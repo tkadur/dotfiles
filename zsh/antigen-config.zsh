@@ -1,3 +1,4 @@
+export ANTIGEN_CACHE=false
 source $ANTIGEN_DIR/antigen.zsh
 
 # Load the oh-my-zsh's library
@@ -21,8 +22,6 @@ antigen bundles <<EOBUNDLES
     history-substring-search
     prompt
 EOBUNDLES
-
-antigen theme pure
 
 # Sets Prezto options.
 
@@ -56,12 +55,10 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 # Set the search globbing flags.
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
-#
 # Pacman
-#
 
 # Set the Pacman frontend.
-# zstyle ':prezto:module:pacman' frontend 'yaourt'
+zstyle ':prezto:module:pacman' frontend 'pacaur'
 
 # Prompt
 
@@ -108,16 +105,16 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # Terminal
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
-# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 
 # Set the tab title format.
-# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
 # Set the terminal multiplexer title format.
-# zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
+zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
 
 # Tmux
 

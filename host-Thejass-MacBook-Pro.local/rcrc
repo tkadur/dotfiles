@@ -1,2 +1,2 @@
-EXCLUDES="tags README.md"
+EXCLUDES="tags README.md LICENSE"
 TAGS="nvim"
