@@ -1,3 +1,5 @@
+set nocompatible
+
 filetype plugin indent on " attempt to determine file type
 syntax on                 " enable syntax highlighting
 

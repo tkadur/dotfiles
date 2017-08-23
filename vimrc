@@ -1,26 +1,25 @@
-set nocompatible
 
-" If there are any machine-specific tweaks for Vim, load them from the following file.
 try
-  runtime! config/plugin.vim
+  runtime! config/plugins.vim
 catch
-  echo "No plugin support"
+  echo "Plugins broken"
 endtry
 
 try
   runtime! config/keybindings.vim
 catch
-  echo "No keybindings support"
-endtry
-
-try
-  runtime! config/settings.vim
-catch
-  echo "No plugin support"
+  echo "Keybindings broken"
 endtry
 
 try
   runtime! config/commands.vim
 catch
-  echo "No keybindings support"
+  echo "Custom commands broken"
 endtry
+
+try
+  runtime! config/settings.vim
+catch
+  echo "Misc. settings broken"
+endtry
+
