@@ -30,7 +30,10 @@ nnoremap <C-a> ggVG
 noremap <silent> Y y$
 
 " Hit ctrl+n to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
+
+" Hit ctrl+u to open undotree
+nnoremap <Tab> :UndotreeToggle<CR>
 
 " Hit ctrl+s to save
 inoremap <C-s> <esc>:w<cr>a
@@ -43,6 +46,7 @@ nnoremap <C-q> :q<CR>
 " Change undo/redo commands
 nnoremap <S-u> u
 nnoremap <S-r> <C-r>
+
 
 " Disable middle click to paste
 map <MiddleMouse> <Nop>
