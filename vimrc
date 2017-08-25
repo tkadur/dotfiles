@@ -22,4 +22,3 @@ try
 catch
   echo "Misc. settings broken"
 endtry
-

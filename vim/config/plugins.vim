@@ -35,13 +35,12 @@ Plug 'vim-airline/vim-airline-themes'
 
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#ale#enabled = 1
-Plug 'airblade/vim-gitgutter'
-  " ----- airblade/vim-gitgutter settings -----
-  " In vim-airline, only display "hunks" if the diff is non-zero
-  let g:airline#extensions#hunks#non_zero_only = 1
+" Plug 'airblade/vim-gitgutter'
+"   " ----- airblade/vim-gitgutter settings -----
+"   " In vim-airline, only display "hunks" if the diff is non-zero
+"   let g:airline#extensions#hunks#non_zero_only = 1
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 
@@ -72,7 +71,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
 
 " Tag plugins
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
   " ----- majutsushi/tagbar settings -----
   " Open/close tagbar with \b
@@ -195,14 +194,10 @@ endif
 
 " Misc plugins
 Plug 'jez/vim-superman'
-  " ----- jez/vim-superman settings -----
-  " better man page support
-  noremap K :SuperMan <cword><CR>
-if has("nvim")
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-endif
+  " " ----- jez/vim-superman settings -----
+  " " better man page support
+  " noremap K :SuperMan <cword><CR>
+
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
