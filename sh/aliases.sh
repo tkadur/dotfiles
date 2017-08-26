@@ -36,8 +36,8 @@ alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
 
 # Shortand ls options
 alias la='ls -a'
-alias ll='ls -l'
-alias lal='ls -al'
+alias ll='ls -lh'
+alias lal='ls -alh'
 alias lh='ls -d .*'
 alias lhl='ls -ld .*'
 

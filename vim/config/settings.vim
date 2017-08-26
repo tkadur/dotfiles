@@ -26,6 +26,7 @@ set lazyredraw                 " only redraw when necessary
 set ttyfast                    " always assume a fast terminal
 set showmatch                  " show matching brackets
 set report=0                   " always report changed lines
+set path+=**                   " recursively find files
 if exists('&breakindent')
   set breakindent              " Indent wrapped lines up to the same level
 endif

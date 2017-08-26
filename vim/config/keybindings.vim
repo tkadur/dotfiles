@@ -1,3 +1,6 @@
+" New leader
+let mapleader = ","
+
 " Better line navigation scheme
 noremap <silent> j gj
 noremap <silent> k gk
@@ -21,8 +24,6 @@ nnoremap <C-Down> <C-w>-
 
 " Common keyboard shortcuts
 noremap <C-f> /
-inoremap <C-o> <esc>:FZF<CR>
-nnoremap <C-o> :FZF<CR>
 inoremap <C-a> <esc>ggVG
 nnoremap <C-a> ggVG
 
@@ -30,23 +31,26 @@ nnoremap <C-a> ggVG
 noremap <silent> Y y$
 
 " Hit ctrl+n to open NERDTree
-noremap <C-n> :NERDTreeToggle<CR>
+inoremap <C-n> <esc>:NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Hit ctrl+u to open undotree
-nnoremap <Tab> :UndotreeToggle<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
 
-" Hit ctrl+s to save
+" Easier way to save
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<CR>
+nnoremap <Leader>s :w<CR>
 
-" Hit ctrl+q to quit
+" Easier way to quit
 inoremap <C-q> <esc>:q<CR>
 nnoremap <C-q> :q<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>x :wq<CR>
 
-" Change undo/redo commands
+" Consistent undo/redo commands
 nnoremap <S-u> u
 nnoremap <S-r> <C-r>
-
 
 " Disable middle click to paste
 map <MiddleMouse> <Nop>
