@@ -31,7 +31,7 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#tabline#enabled = 1
 
   " Use theme for the Airline status bar
-  let g:airline_theme='base16'
+  let g:airline_theme='gruvbox'
 
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#ale#enabled = 1
@@ -205,5 +205,5 @@ Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " Colors (must be set after vim-plug loads themes)
-colorscheme base16-solarized-dark
-" set background=dark
+colorscheme gruvbox
+set background=dark

@@ -20,9 +20,6 @@ alias shell='ps -p $$ -o comm='
 # What else would you use ps for
 alias psg="ps aux | grep"
 
-# Git status
-alias gst="git status"
-
 # Enable "up" for previous commands
 alias sml='rlwrap sml'
 alias math='rlwrap MathKernel'
