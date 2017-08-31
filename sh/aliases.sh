@@ -60,7 +60,7 @@ alias ........="cd ../../../../../../../"
 alias ........="cd ../../../../../../../../"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias trash="cd ~/.Trash"
+  alias trash="cd $USER_HOME/.Trash"
 fi
 
 # See how much RAM Chrome is using (always helpful)
