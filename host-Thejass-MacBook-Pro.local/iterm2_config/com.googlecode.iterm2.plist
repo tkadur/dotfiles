@@ -2861,7 +2861,7 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>497 408 228 297 0 0 1920 1057 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>254 37 1026 161 0 0 1280 777 </string>
+	<string>274 175 1064 256 0 0 1280 777 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>760 697 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
@@ -2869,13 +2869,17 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 207 606 469 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>222 350 918 381 0 0 1280 777 </string>
+	<string>222 358 918 394 0 0 1280 777 </string>
 	<key>NSWindow Frame com.apple.typography_panel_MenloForPowerline-Regular</key>
 	<string>212 484 260 36 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 4 1280 773 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 4 1914 1053 0 0 1920 1057 </string>
+	<key>NeverWarnAboutShortLivedSessions_C9EC87A7-589E-46A0-B3C9-9DA4A4633CB4</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_C9EC87A7-589E-46A0-B3C9-9DA4A4633CB4_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3540,11 +3544,11 @@
 			<key>Name</key>
 			<string> </string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>SauceCodeProNerdFontC-Regular 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodeProNerdFontC-Regular 12</string>
+			<string>SourceCodeProForPowerline-Regular 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -3616,6 +3620,10 @@
 			<integer>1</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Unicode Normalization</key>
+			<integer>0</integer>
+			<key>Unicode Version</key>
+			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -3707,7 +3715,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-08-26T16:58:41Z</date>
+	<date>2017-09-14T22:50:45Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3745,7 +3753,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.20170823-nightly</string>
+	<string>3.1.20170830-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
