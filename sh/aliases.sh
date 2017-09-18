@@ -32,6 +32,9 @@ alias cc='gcc -Wall -W -ansi -pedantic -O2 '
 alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
 
 # Shortand ls options
+if [ -x "$(command -v exa)" ]; then
+  alias ls='exa'
+fi
 alias la='ls -a'
 alias ll='ls -lh'
 alias lal='ls -alh'
@@ -61,6 +64,8 @@ alias ........="cd ../../../../../../../../"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias trash="cd $USER_HOME/.Trash"
+  alias 213="cd $USER_HOME/GoogleDrive/CMU/F17/15-213"
+  alias 210="cd $USER_HOME/GoogleDrive/CMU/F17/15-210"
 fi
 
 # See how much RAM Chrome is using (always helpful)
