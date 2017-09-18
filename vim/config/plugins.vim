@@ -33,16 +33,12 @@ Plug 'vim-airline/vim-airline-themes'
   " Use theme for the Airline status bar
   let g:airline_theme='gruvbox'
 
-  let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#ale#enabled = 1
-" Plug 'airblade/vim-gitgutter'
-"   " ----- airblade/vim-gitgutter settings -----
-"   " In vim-airline, only display "hunks" if the diff is non-zero
-"   let g:airline#extensions#hunks#non_zero_only = 1
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  " let g:airline_section_c = ''
+  let g:airline_section_y = ''
+
 Plug 'mhinz/vim-startify'
-Plug 'ryanoasis/vim-devicons'
 
 " Language plugins
 Plug 'rust-lang/rust.vim'
@@ -66,8 +62,8 @@ augroup END
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-fugitive'
 Plug 'Kazark/vim-SimpleSmoothScroll'
-Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
 
 " Tag plugins
@@ -79,19 +75,6 @@ Plug 'majutsushi/tagbar'
   let g:tagbar_sort = 0
   " Uncomment to open tagbar automatically whenever possible
   "autocmd BufEnter * nested :call tagbar#autoopen(0)
-  let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-      \'T:types,type definitions',
-      \'f:functions,function definitions',
-      \'g:enum,enumeration names',
-      \'s:structure names',
-      \'m:modules,module names',
-      \'c:consts,static constants',
-      \'t:traits,traits',
-      \'i:impls,trait implementations',
-    \]
-  \}
 
 " Syntax/completion plugins
 if has("nvim") || v:version >= 800
@@ -108,9 +91,8 @@ if has("nvim") || v:version >= 800
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_run_on_insert_leave = 1
     let g:ale_linters = {
-          \  'c': ['clang'],
-          \  'cpp': ['clang'],
-          \  'rust': ['rls']
+          \  'c'    : ['clang'],
+          \  'cpp'  : ['clang'],
           \}
     " Don't report refactor or convention errors
     let g:ale_python_pylint_options = '--disable=R,C'
@@ -162,11 +144,10 @@ if has("nvim")
 
     set completeopt+=noinsert
 
-    " set completeopt-=preview
+    set completeopt-=preview
     " " Automatically close deoplete preview window
     " au CompleteDone * silent! pclose!
 
-  Plug 'Shougo/echodoc.vim'
 elseif v:version < 800
   Plug 'vim-syntastic/syntastic'
     " ----- Syntastic settings
@@ -200,7 +181,7 @@ Plug 'jez/vim-superman'
 
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
