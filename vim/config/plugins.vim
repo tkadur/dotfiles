@@ -183,6 +183,11 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 call plug#end()
 
 " Colors (must be set after vim-plug loads themes)
