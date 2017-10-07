@@ -35,11 +35,12 @@ alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
 if [ -x "$(command -v exa)" ]; then
   alias ls='exa'
 fi
+alias l='ls'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lal='ls -alh'
 alias lh='ls -d .*'
-alias lhl='ls -ld .*'
+alias lhl='ls -lhd .*'
 
 # Moving around
 alias cdd="cd ../"
