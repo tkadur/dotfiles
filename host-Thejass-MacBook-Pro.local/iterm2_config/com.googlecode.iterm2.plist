@@ -2863,7 +2863,7 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>497 408 228 297 0 0 1920 1057 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>274 175 1064 256 0 0 1280 777 </string>
+	<string>216 175 1064 122 0 0 1280 777 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>760 697 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
@@ -2871,7 +2871,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 207 606 469 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>222 358 918 394 0 0 1280 777 </string>
+	<string>222 371 918 381 0 0 1280 777 </string>
 	<key>NSWindow Frame com.apple.typography_panel_MenloForPowerline-Regular</key>
 	<string>212 484 260 36 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -3717,7 +3717,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-09-25T16:15:50Z</date>
+	<date>2017-10-11T21:22:02Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3755,7 +3755,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.20170925-nightly</string>
+	<string>3.1.20171008-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
