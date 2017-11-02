@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Autoinstall vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -33,8 +35,6 @@ Plug 'vim-airline/vim-airline-themes'
   " Use theme for the Airline status bar
   let g:airline_theme='gruvbox'
 
-  let g:airline#extensions#ale#enabled = 1
-
   " let g:airline_section_c = ''
   let g:airline_section_y = ''
 
@@ -53,7 +53,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Raimondi/delimitMate'
   " ----- Raimondi/delimitMate settings -----
-  let delimitMate_expand_cr = 1
+  let g:delimitMate_expand_cr = 1
   augroup mydelimitMate
     au!
     au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
@@ -65,6 +65,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
+  let g:airline#extensions#branch#enabled = 1
 Plug 'Kazark/vim-SimpleSmoothScroll'
 Plug 'mbbill/undotree'
 
@@ -75,11 +76,12 @@ Plug 'majutsushi/tagbar'
   " Open/close tagbar with \b
   nmap <silent> <C-b> :TagbarToggle<CR>
   let g:tagbar_sort = 0
+  let g:airline#extensions#tagbar#enabled = 1
   " Uncomment to open tagbar automatically whenever possible
   "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " Syntax/completion plugins
-if has("nvim") || v:version >= 800
+if has('nvim') || v:version >= 800
   Plug 'w0rp/ale'
     " ----- w0rp/ale settings -----
     " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
@@ -87,20 +89,19 @@ if has("nvim") || v:version >= 800
     let g:ale_sign_column_always = 1
     let g:ale_sign_error = '✘'
     let g:ale_sign_warning = '▲'
-    " let g:ale_set_loclist=0
-    " let g:ale_set_quickfix=1
+    let g:ale_set_loclist=0
+    let g:ale_set_quickfix=1
     let g:ale_open_list = 1
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_run_on_insert_leave = 1
-    let g:ale_linters = {
-          \  'c'    : ['clang'],
-          \  'cpp'  : ['clang'],
-          \}
+    "
     " Don't report refactor or convention errors
-    let g:ale_python_pylint_options = '--disable=R,C'
+    let g:ale_python_pylint_options = '--disable=R,C,I,F'
+
+    let g:airline#extensions#ale#enabled = 1
 endif
 
-if has("nvim")
+if has('nvim')
   Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
     let g:LanguageClient_serverCommands = {
         \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
@@ -110,7 +111,7 @@ if has("nvim")
     let g:LanguageClient_autoStart = 1
 
     " Don't let this do ALE's job
-    let g:LanguageClient_diagnosticsList = "location"
+    let g:LanguageClient_diagnosticsList = 'location'
     let g:LanguageClient_diagnosticsEnable = 0
 
     nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
@@ -119,7 +120,7 @@ if has("nvim")
 
   Plug 'ervandew/supertab'
     " ----- ervandew/supertab settings -----
-    let g:SuperTabDefaultCompletionType = "<c-n>"
+    let g:SuperTabDefaultCompletionType = '<c-n>'
 
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
@@ -132,9 +133,9 @@ if has("nvim")
 
     "C/C++
     let g:deoplete#sources#clang#libclang_path =
-          \ "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+          \ '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
     let g:deoplete#sources#clang#clang_header =
-          \ "/Library/Developer/CommandLineTools/usr/lib/clang"
+          \ '/Library/Developer/CommandLineTools/usr/lib/clang'
 
     " Rust
     let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
@@ -157,11 +158,11 @@ elseif v:version < 800
     " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
     hi clear SignColumn
     let g:syntastic_error_symbol = '✘'
-    let g:syntastic_warning_symbol = "▲"
+    let g:syntastic_warning_symbol =  '▲'
 
     augroup mySyntastic
       au!
-      au FileType tex let b:syntastic_mode = "passive"
+      au FileType tex let b:syntastic_mode = 'passive'
     augroup END
 
     set statusline+=%#warningmsg#
@@ -173,6 +174,8 @@ elseif v:version < 800
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
     let g:syntastic_rust_checkers = ['cargo']
+
+    let g:airline#extensions#syntastic#enabled = 1
 endif
 
 " Misc plugins
@@ -184,6 +187,9 @@ Plug 'jez/vim-superman'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
+
+Plug 'wesQ3/vim-windowswap'
+  let g:airline#extensions#windowswap#enabled = 1
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
