@@ -46,6 +46,8 @@ Plug 'jez/vim-better-sml'
   " ----- jez/vim-better-sml settings -----
   au Filetype sml setlocal conceallevel=2
 Plug 'jez/vim-c0'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " General convenience plugins
 Plug 'ConradIrwin/vim-bracketed-paste'
