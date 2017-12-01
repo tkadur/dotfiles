@@ -44,7 +44,7 @@ endif
 " Spaces masterrace
 set tabstop=2     " number of visual spaces per tab
 set softtabstop=2 " number of spaces per tab when editing
-set shiftwidth=0  " number of spaces for each step of autoindent
+set shiftwidth=2  " number of spaces for each step of autoindent
 set expandtab     " tabs are spaces
 set shiftround    " round to multiple of shiftwidth when adjusting indentation
 set autoindent    " auto indent on a new line
