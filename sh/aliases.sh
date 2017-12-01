@@ -65,6 +65,7 @@ alias ........="cd ../../../../../../../../"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias trash="cd $USER_HOME/.Trash"
+  alias 150="cd $USER_HOME/GoogleDrive/CMU/S17/15-150"
   alias 213="cd $USER_HOME/GoogleDrive/CMU/F17/15-213"
   alias 210="cd $USER_HOME/GoogleDrive/CMU/F17/15-210"
 fi
