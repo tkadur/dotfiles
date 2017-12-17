@@ -137,10 +137,6 @@ if has('nvim')
     nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
     nnoremap <silent> <C-r> :call LanguageClient_textDocument_rename()<CR>
 
-  Plug 'ervandew/supertab'
-    " ----- ervandew/supertab settings -----
-    let g:SuperTabDefaultCompletionType = '<c-n>'
-
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
   " Plug 'Shougo/neoinclude.vim'
@@ -149,6 +145,10 @@ if has('nvim')
   " Plug 'tweekmonster/deoplete-clang2'
     " ----- Shougo/deoplete.nvim settings -----
     let g:deoplete#enable_at_startup = 1
+    " use tab to forward cycle
+    inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    " use tab to backward cycle
+    inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
     ""C/C++
     "let g:deoplete#sources#clang#libclang_path =
