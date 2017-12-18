@@ -58,4 +58,12 @@ alias vvim="command vim"
 
 alias tmux="tmux -2"
 
-alias pyserver="python -m SimpleHTTPServer"
+alias ga="git add"
+alias gb="git branch"
+alias gc="git commit -v"
+alias gd="git diff"
+alias gm="git merge"
+alias gp="git push"
+alias gpl="git pull"
+alias gl="git log"
+alias gst="git status"
