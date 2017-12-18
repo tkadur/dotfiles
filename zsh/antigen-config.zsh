@@ -8,12 +8,7 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     # Bundles from the default repo
     adb
-    brew
-    command-not-found
-    git
     history-substring-search
-    tmux
-    vi-mode
 
     sorin-ionescu/prezto modules/completion
 
