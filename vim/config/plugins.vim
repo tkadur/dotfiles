@@ -106,12 +106,6 @@ if has('nvim') || v:version >= 800
           \   'cpp' : ['clang-format']
           \ }
 
-    " let g:ale_cpp_clang_executable = '/usr/local/Cellar/llvm/5.0.0/bin/clang++'
-    " let g:ale_cpp_clang_options = '-std=c++1z -Wall'
-
-    " let g:ale_cpp_clangtidy_executable= '/usr/local/Cellar/llvm/5.0.0/bin/clang-tidy'
-    " let g:ale_cpp_clangformat_executable= '/usr/local/Cellar/llvm/5.0.0/bin/clang-format'
-
     " Don't report refactor or convention errors
     let g:ale_python_pylint_options = '--disable=R,C,I,F'
 
@@ -122,8 +116,8 @@ if has('nvim')
   Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
     let g:LanguageClient_serverCommands = {
         \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-        \ 'cpp': ['/usr/local/Cellar/llvm/5.0.0/bin/clangd'],
-        \ 'c': ['/usr/local/Cellar/llvm/5.0.0/bin/clangd'],
+        \ 'cpp': ['$CLANGD'],
+        \ 'c': ['$CLANGD'],
         \ }
 
     " Automatically start language servers.
@@ -139,34 +133,12 @@ if has('nvim')
 
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
-  " Plug 'Shougo/neoinclude.vim'
-  " Plug 'sebastianmarkow/deoplete-rust'
-  " Plug 'zchee/deoplete-asm'
-  " Plug 'tweekmonster/deoplete-clang2'
-    " ----- Shougo/deoplete.nvim settings -----
+  " ----- Shougo/deoplete.nvim settings -----
     let g:deoplete#enable_at_startup = 1
     " use tab to forward cycle
     inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
     " use tab to backward cycle
     inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-    ""C/C++
-    "let g:deoplete#sources#clang#libclang_path =
-    "      \ '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
-    "let g:deoplete#sources#clang#clang_header =
-    "      \ '/usr/local/Cellar/llvm/5.0.0/lib/clang'
-    " let g:deoplete#sources#clang#executable = '/usr/local/Cellar/llvm/5.0.0/bin/clang'
-    " let g:deoplete#sources#clang#std =
-    "       \ {
-    "       \   'c': 'c11',
-    "       \   'cpp': 'c++17',
-    "       \   'objc': 'c11',
-    "       \   'objcpp': 'c++1z',
-    "       \ }
-
-    " Rust
-    " let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
-    " let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
     autocmd FileType txt let b:deoplete_disable_auto_complete = 1
     autocmd FileType tex let b:deoplete_disable_auto_complete = 1
@@ -207,9 +179,6 @@ endif
 
 " Misc plugins
 Plug 'jez/vim-superman'
-  " " ----- jez/vim-superman settings -----
-  " " better man page support
-  " noremap K :SuperMan <cword><CR>
 
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'

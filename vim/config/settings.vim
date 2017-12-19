@@ -76,7 +76,6 @@ if has("autocmd")
   au WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 endif
 
-
 " vp doesn't replace paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
