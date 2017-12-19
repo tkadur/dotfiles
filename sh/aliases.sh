@@ -1,3 +1,5 @@
+source ~/.sh/alias_core.sh
+
 # color support for ls and grep
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "freebsd"* ]]; then
   alias ls='ls -G'
