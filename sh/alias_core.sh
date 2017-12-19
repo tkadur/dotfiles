@@ -13,7 +13,6 @@ alias mv='mv -v'
 alias psg="ps aux | grep"
 
 # Enable "up" for previous commands
-alias sml='rlwrap sml'
 alias coin='rlwrap coin'
 
 # Invoke gcc with commonly used options

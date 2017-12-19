@@ -7,6 +7,16 @@ else
   alias ls='ls --color=auto'
 fi
 
+# Enable "up" for previous commands
+if [ -x "$(command -v rlwrap)" ]; then
+  if [ -x "$(command -v sml)" ]; then
+    alias sml="rlwrap sml"
+  elif [ -x "$(command -v poly)" ]; then
+    alias poly='rlwrap poly'
+    alias sml='poly'
+  fi
+fi
+
 # Print name of shell currently being used
 alias shell='ps -p $$ -o comm='
 

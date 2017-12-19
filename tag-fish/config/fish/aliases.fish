@@ -8,6 +8,16 @@ switch (uname)
     alias ls='ls -G'
 end
 
+# Enable "up" for previous commands
+if type -q "rlwrap"
+  if type -q "sml"
+    alias sml='rlwrap sml'
+  else if type -q "poly"
+    alias poly='rlwrap poly'
+    alias sml='poly'
+  end
+end
+
 # Print name of shell currently being used
 alias shell='ps -p %self -o comm='
 #
