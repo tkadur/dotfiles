@@ -1,3 +1,3 @@
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+test -e "~/.iterm2_shell_integration.bash" && source "~/.iterm2_shell_integration.bash"
 
-source $USER_HOME/.bash/bash-it-config.bash
+source ~/.bash/bash-it-config.bash
