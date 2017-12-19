@@ -15,7 +15,6 @@ alias psg="ps aux | grep"
 # Enable "up" for previous commands
 alias sml='rlwrap sml'
 alias coin='rlwrap coin'
-alias gdb="HISTSIZE=1000 gdb"
 
 # Invoke gcc with commonly used options
 alias cc='gcc -Wall -W -ansi -pedantic -O2 '
@@ -28,8 +27,10 @@ alias l='ls'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lal='ls -alh'
+alias lla='lal'
 alias lh='ls -d .*'
 alias lhl='ls -lhd .*'
+alias llh='lhl'
 
 # Moving around
 alias cdd="cd ../"
