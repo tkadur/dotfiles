@@ -23,6 +23,7 @@ alias shell='ps -p $$ -o comm='
 # Shortand ls options
 if [ -x "$(command -v exa)" ]; then
   alias ls='exa'
+  alias tree='ls -T'
 fi
 
 # General use stuff

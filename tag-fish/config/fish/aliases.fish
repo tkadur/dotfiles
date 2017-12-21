@@ -24,6 +24,7 @@ alias shell='ps -p %self -o comm='
 # Shortand ls options
 if type -q "exa"
   alias ls='exa'
+  alias tree='ls -T'
 end
 
 # General use stuff
