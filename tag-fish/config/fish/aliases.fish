@@ -8,13 +8,21 @@ switch (uname)
     alias ls='ls -G'
 end
 
+# SML on various systems
+set SML 'sml'
+if not type -q "sml"
+  if type -q "cmd.exe"
+    set SML 'cmd.exe /c sml'
+  else if type -q "poly"
+    set SML'poly'
+  end
+end
+alias sml=$SML
+
 # Enable "up" for previous commands
 if type -q "rlwrap"
   if type -q "sml"
-    alias sml='rlwrap sml'
-  else if type -q "poly"
-    alias poly='rlwrap poly'
-    alias sml='poly'
+    alias sml="rlwrap $SML"
   end
 end
 

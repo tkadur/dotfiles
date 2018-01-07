@@ -7,13 +7,21 @@ else
   alias ls='ls --color=auto'
 fi
 
+#SML on various systems
+SML='sml'
+if ! [ -x "$(command -v sml)" ]; then
+  if [ -x "$(command -v cmd.exe)" ]; then
+    SML='cmd.exe /c sml'
+  elif [ -x "$(command -v poly)" ]; then
+    SML='poly'
+  fi
+fi
+alias sml=$SML
+
 # Enable "up" for previous commands
 if [ -x "$(command -v rlwrap)" ]; then
   if [ -x "$(command -v sml)" ]; then
-    alias sml="rlwrap sml"
-  elif [ -x "$(command -v poly)" ]; then
-    alias poly='rlwrap poly'
-    alias sml='poly'
+    alias sml="rlwrap $SML"
   fi
 fi
 
