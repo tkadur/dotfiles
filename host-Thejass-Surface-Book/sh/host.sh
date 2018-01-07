@@ -1,0 +1,10 @@
+# alias clang='clang-5.0'
+# alias clang++='clang++-5.0'
+# alias clangd='clangd-5.0'
+# alias clang-tidy='clang-tidy-5.0'
+# alias clang-format='clang-format-5.0'
+# alias lldb='lldb-5.0'
+
+# export CC='/usr/bin/clang-5.0'
+# export CXX='/usr/bin/clang++-5.0'
+# export CLANGD='/usr/bin/clangd-5.0'
