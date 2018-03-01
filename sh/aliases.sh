@@ -20,9 +20,8 @@ alias sml=$SML
 
 # Enable "up" for previous commands
 if [ -x "$(command -v rlwrap)" ]; then
-  if [ -x "$(command -v sml)" ]; then
-    alias sml="rlwrap $SML"
-  fi
+  alias sml="rlwrap $SML 2> /dev/null"
+  alias ghci="rlwrap $GHCI 2> /dev/null"
 fi
 
 # Print name of shell currently being used
@@ -52,3 +51,10 @@ vman() {
     echo "No manual entry for $*"
   fi
 }
+
+# Open things in WSL
+if [ -x "$(command -v cmd.exe)" ]; then
+  open() {
+    echo $* | sed 's/\/mnt\/\(.\)/\1:/1' | xargs cmd.exe /C start
+  }
+fi

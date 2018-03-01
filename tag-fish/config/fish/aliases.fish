@@ -19,11 +19,16 @@ if not type -q "sml"
 end
 alias sml=$SML
 
+set GHCI 'ghci'
+if type -q "cmd.exe"
+  set GHCI 'cmd.exe /c ghci'
+end
+alias ghci=$GHCI
+
 # Enable "up" for previous commands
 if type -q "rlwrap"
-  if type -q "sml"
-    alias sml="rlwrap $SML"
-  end
+  alias sml="rlwrap $SML 2> /dev/null"
+  alias ghci="rlwrap $GHCI 2> /dev/null"
 end
 
 # Print name of shell currently being used
@@ -51,5 +56,12 @@ function vman
 
   if test "$status" != "0"
     echo "No manual entry for $argv"
+  end
+end
+
+# Open things in WSL
+if type -q "cmd.exe"
+  function open
+    echo $argv | sed 's/\/mnt\/\(.\)/\1:/1' | xargs cmd.exe /C start
   end
 end
