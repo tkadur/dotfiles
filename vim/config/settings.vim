@@ -27,7 +27,6 @@ set lazyredraw                 " only redraw when necessary
 set ttyfast                    " always assume a fast terminal
 set showmatch                  " show matching brackets
 set report=0                   " always report changed lines
-set path+=**                   " recursively find files
 set formatoptions-=t           " disable auto line breaks
 if exists('&breakindent')
   set breakindent              " Indent wrapped lines up to the same level
@@ -61,6 +60,9 @@ set smartcase  " don't ignore case when inserting uppercase characters
 " Persistent undo
 set undofile
 set undodir=~/.vim/undodir
+
+" put quickfix window always to the bottom
+autocmd FileType qf wincmd J
 
 " Enable italics
 let &t_ZH="\e[3m"

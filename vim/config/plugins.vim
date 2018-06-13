@@ -176,16 +176,8 @@ endif
 " Misc plugins
 Plug 'jez/vim-superman'
 
-" Plug 'tmux-plugins/vim-tmux'
-" Plug 'godlygeek/tabular'
-
 Plug 'wesQ3/vim-windowswap'
   let g:airline#extensions#windowswap#enabled = 1
-
-" Plug 'junegunn/goyo.vim'
-" Plug 'junegunn/limelight.vim'
-" autocmd! User GoyoEnter Limelight
-" autocmd! User GoyoLeave Limelight!
 
 call plug#end()
 

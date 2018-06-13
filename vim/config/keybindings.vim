@@ -30,10 +30,6 @@ nnoremap <C-a> ggVG
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$
 
-" Hit ctrl+n to open NERDTree
-inoremap <C-n> <esc>:NERDTreeToggle<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-
 " Hit ctrl+u to open undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
@@ -51,6 +47,10 @@ nnoremap <Leader>x :wq<CR>
 " Consistent undo/redo commands
 nnoremap <S-u> u
 nnoremap <S-r> <C-r>
+
+" Switch buffers easily
+nnoremap gb :bnext<CR>
+nnoremap gB :bpreview<CR>
 
 " Disable middle click to paste
 map <MiddleMouse> <Nop>
