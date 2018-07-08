@@ -50,7 +50,7 @@ nnoremap <S-r> <C-r>
 
 " Switch buffers easily
 nnoremap gb :bnext<CR>
-nnoremap gB :bpreview<CR>
+nnoremap gB :bprevious<CR>
 
 " Disable middle click to paste
 map <MiddleMouse> <Nop>

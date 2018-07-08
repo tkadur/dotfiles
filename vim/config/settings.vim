@@ -78,6 +78,11 @@ if has("autocmd")
 
   " Automatically close loclist when no files open
   au WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
+
+  augroup qf
+    autocmd!
+    autocmd FileType qf set nobuflisted
+  augroup end
 endif
 
 " vp doesn't replace paste buffer
