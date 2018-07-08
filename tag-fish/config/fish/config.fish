@@ -9,6 +9,7 @@ if not status --is-interactive
     exit
 end
 
-load_module ~/.sh/host.sh
+load_module ~/.sh/host.sh > /dev/null
+load_module ~/.config/fish/host.fish > /dev/null
 load_module ~/.config/fish/misc.fish
 load_module ~/.config/fish/aliases.fish
