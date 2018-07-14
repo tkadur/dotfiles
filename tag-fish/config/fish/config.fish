@@ -1,8 +1,11 @@
-#if begin; not type -q omf; and test -z "$INSTALLING_OMF"; end
-#  echo "Installing oh-my-fish..."
-#  set -lx INSTALLING_OMF 1
-#  curl -L https://get.oh-my.fish | fish
-#end
+set OMF_LOCK_PATH $HOME/.config/fish/.omf.lock
+
+if begin; not type -q omf; and not test -e $OMF_LOCK_PATH; end
+  echo "Auto-installing oh-my-fish..."
+  touch $OMF_LOCK_PATH
+  curl -L https://get.oh-my.fish | fish
+  rm $OMF_LOCK_PATH
+end
 
 # Guard against non-interactive logins
 if not status --is-interactive
