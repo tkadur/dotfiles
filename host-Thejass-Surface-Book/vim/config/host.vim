@@ -7,7 +7,7 @@ let &t_te.="\e[0 q"
 
 " Disable escape timeous
 " mintty specific
-let &t_ti.="\e[?7727h"
-let &t_te.="\e[?7727l"
-noremap <Esc>O[ <Esc>
-noremap! <Esc>O[ <C-c>
+" let &t_ti.="\e[?7727h"
+" let &t_te.="\e[?7727l"
+" noremap <Esc>O[ <Esc>
+" noremap! <Esc>O[ <C-c>
