@@ -1,10 +1,10 @@
-set OMF_LOCK_PATH $HOME/.config/fish/.omf.lock
+set FISHERMAN_LOCK_PATH $HOME/.config/fish/.fisherman.lock
 
-if begin; not type -q omf; and not test -e $OMF_LOCK_PATH; end
-  echo "Auto-installing oh-my-fish..."
-  touch $OMF_LOCK_PATH
-  curl -L https://get.oh-my.fish | fish
-  rm $OMF_LOCK_PATH
+if begin; not type -q fisher; and not test -e $FISHERMAN_LOCK_PATH; end
+  echo "Auto-installing fisherman..."
+  touch $FISHERMAN_LOCK_PATH
+  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+  rm $FISHERMAN_LOCK_PATH
 end
 
 # Guard against non-interactive logins
