@@ -2,4 +2,6 @@
 set TERM xterm-256color
 
 # Add cargo to path
-set PATH $HOME/.cargo/bin $PATH
+if test -d "$HOME/.cargo/bin"
+  set PATH $HOME/.cargo/bin $PATH
+end

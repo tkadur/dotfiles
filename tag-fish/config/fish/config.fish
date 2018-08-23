@@ -4,6 +4,7 @@ if begin; not type -q fisher; and not test -e $FISHERMAN_LOCK_PATH; end
   echo "Auto-installing fisherman..."
   touch $FISHERMAN_LOCK_PATH
   curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+  fisher MaxMilton/pure
   rm $FISHERMAN_LOCK_PATH
 end
 
