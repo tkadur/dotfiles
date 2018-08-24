@@ -4,7 +4,11 @@ if begin; not type -q fisher; and not test -e $FISHERMAN_LOCK_PATH; end
   echo "Auto-installing fisherman..."
   touch $FISHERMAN_LOCK_PATH
   curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-  fisher MaxMilton/pure
+
+  # Ideally, we want to read from the `fishfile`,
+  # but fisherman erases the existing one whenever it gets installed.
+  # So we have to manually install plugins.
+
   rm $FISHERMAN_LOCK_PATH
 end
 
