@@ -2,7 +2,8 @@ source ~/.sh/init.sh
 
 load_module ~/.sh/host.sh > /dev/null
 load_module ~/.sh/misc.sh
+load_module ~/.sh/aliases.sh
 
 load_module ~/.zsh/host.zsh > /dev/null
 load_module ~/.zsh/misc.zsh
-load_module ~/.sh/aliases.sh
+load_module ~/.zsh/plugins.zsh
