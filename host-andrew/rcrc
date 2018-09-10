@@ -1,2 +1,2 @@
 EXCLUDES="README.md LICENSE"
-TAGS="zsh"
+TAGS="sh zsh vim"
