@@ -30,8 +30,11 @@ nnoremap <C-a> ggVG
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$
 
-" Hit ctrl+u to open undotree
+" Open undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
+
+" Open NERDTree
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Easier way to save
 inoremap <C-s> <esc>:w<cr>a

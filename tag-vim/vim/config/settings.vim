@@ -27,6 +27,7 @@ set lazyredraw                 " only redraw when necessary
 set ttyfast                    " always assume a fast terminal
 set showmatch                  " show matching brackets
 set report=0                   " always report changed lines
+set shell=sh
 set formatoptions-=t           " disable auto line breaks
 if exists('&breakindent')
   set breakindent              " Indent wrapped lines up to the same level
