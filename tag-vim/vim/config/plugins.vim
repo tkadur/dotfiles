@@ -35,9 +35,7 @@ Plug 'mhinz/vim-startify'
 Plug 'rust-lang/rust.vim'
 Plug 'jez/vim-better-sml'
   au Filetype sml setlocal conceallevel=2
-Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " General convenience plugins
@@ -45,9 +43,9 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-fugitive'
-  let g:airline#extensions#branch#enabled = 1
-Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+"   let g:airline#extensions#branch#enabled = 1
+" Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 
 " Vim/Neovim compatibility
@@ -124,11 +122,13 @@ if has('nvim') || v:version >= 800
 
     set completeopt+=noinsert
 
-    set completeopt-=preview
-    " " Automatically close deoplete preview window
-    " au CompleteDone * silent! pclose!
-  Plug 'Shougo/neco-syntax'
-  " Plug 'zchee/deoplete-jedi'
+    " set completeopt-=preview
+    " Automatically close deoplete preview window
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+  " Plug 'Shougo/neco-syntax'
+  Plug 'Shougo/neco-vim'
+  Plug 'zchee/deoplete-jedi'
+    let g:deoplete#sources#jedi#show_docstring = 1
 elseif v:version < 800
   Plug 'vim-syntastic/syntastic'
     " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
@@ -136,11 +136,6 @@ elseif v:version < 800
 
     let g:syntastic_error_symbol = '✘'
     let g:syntastic_warning_symbol =  '▲'
-
-    augroup mySyntastic
-      au!
-      au FileType tex let b:syntastic_mode = 'passive'
-    augroup END
 
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -155,7 +150,6 @@ elseif v:version < 800
 endif
 
 Plug 'scrooloose/nerdtree'
-
   "Open NERDTree when Vim is launched on a directory
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
