@@ -8,32 +8,21 @@ switch (uname)
     alias ls='ls -G'
 end
 
-# SML on various systems
-set SML 'sml'
-if not type -q "sml"
-  if type -q "cmd.exe"
-    set SML 'cmd.exe /c sml'
-  else if type -q "poly"
-    set SML'poly'
-  end
-end
-alias sml=$SML
-
-set GHCI 'ghci'
-if type -q "cmd.exe"
-  set GHCI 'cmd.exe /c ghci'
-end
-alias ghci=$GHCI
+wsl_alias "sml"
+wsl_alias "stack"
+wsl_alias "ghc"
+wsl_alias "ghci"
 
 # Enable "up" for previous commands
 if type -q "rlwrap"
-  alias sml="rlwrap $SML 2> /dev/null"
-  alias ghci="rlwrap $GHCI 2> /dev/null"
+  alias sml="rlwrap $sml_wsl"
+  alias ghci="rlwrap $ghci_wsl"
+  alias stack="rlwrap $stack_wsl" # This is to make `stack ghci` work
 end
 
 # Print name of shell currently being used
 alias shell='ps -p %self -o comm='
-#
+
 # Shortand ls options
 if type -q "exa"
   alias ls='exa'
@@ -41,7 +30,6 @@ if type -q "exa"
 end
 
 # General use stuff
-alias mine="sudo chown (whoami)"
 if type -q "nvim"
   alias vim="nvim"
 end
