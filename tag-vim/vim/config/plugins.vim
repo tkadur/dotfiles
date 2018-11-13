@@ -149,7 +149,7 @@ elseif v:version < 800
     let g:airline#extensions#syntastic#enabled = 1
 endif
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   "Open NERDTree when Vim is launched on a directory
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -161,19 +161,6 @@ Plug 'scrooloose/nerdtree'
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
   let g:NERDTreeQuitOnOpen = 1
-Plug 'Xuyuanp/nerdtree-git-plugin'
-  let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 " Misc plugins
 Plug 'jez/vim-superman'
