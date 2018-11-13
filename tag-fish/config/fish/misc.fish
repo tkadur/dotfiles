@@ -5,3 +5,7 @@ set TERM xterm-256color
 if test -d "$HOME/.cargo/bin"
   set PATH $HOME/.cargo/bin $PATH
 end
+
+if test -d "$HOME/.local/bin"
+  set PATH $HOME/.local/bin $PATH
+end

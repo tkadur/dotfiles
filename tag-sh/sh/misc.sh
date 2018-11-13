@@ -5,7 +5,12 @@ export TERM=xterm-256color
 stty -ixon
 
 # Add cargo to path
-if [ -d "$DIRECTORY" ]; then
+if [ -d "$HOME/.cargo/bin" ]; then
   # Control will enter here if $DIRECTORY exists.
   export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+  # Control will enter here if $DIRECTORY exists.
+  export PATH="$HOME/.local/bin:$PATH"
 fi
