@@ -1,2 +1,2 @@
 EXCLUDES="README.md LICENSE mintty-themes/*"
-TAGS="vim sh fish zsh"
+TAGS="vim nvim sh fish zsh"
