@@ -13,11 +13,13 @@ wsl_alias "stack"
 wsl_alias "ghc"
 wsl_alias "ghci"
 
+wsl_aliases "sml" "stack" "cabal" "ghc" "ghci"
+
 # Enable "up" for previous commands
 if type -q "rlwrap"
-  alias sml="rlwrap $sml_wsl"
-  alias ghci="rlwrap $ghci_wsl"
-  alias stack="rlwrap $stack_wsl" # This is to make `stack ghci` work
+  alias sml="rlwrap $sml"
+  alias ghci="rlwrap $ghci"
+  alias stack="rlwrap $stack" # This is to make `stack ghci` work
 end
 
 # Print name of shell currently being used

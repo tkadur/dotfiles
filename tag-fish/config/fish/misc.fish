@@ -1,11 +1,6 @@
 # Fix colors
 set TERM xterm-256color
 
-# Add cargo to path
-if test -d "$HOME/.cargo/bin"
-  set PATH $HOME/.cargo/bin $PATH
-end
+set -x EDITOR vim
 
-if test -d "$HOME/.local/bin"
-  set PATH $HOME/.local/bin $PATH
-end
+add_paths_silent "$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/.cabal/bin" "$HOME/.ghcup/bin"

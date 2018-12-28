@@ -1,15 +1,17 @@
 function wsl_alias
     set command $argv[1]
-    # set wrapper $argv[2]
+    set command_wsl $command"_wsl"
 
     set COMMAND $command
-    if not type -q $command
-        if type -q "cmd.exe"
-            set COMMAND "cmd.exe /c "$command
-        end
+    set COMMAND_WSL "cmd.exe /c "$command
+
+    if begin; not type -q $command; and type -q "cmd.exe"; end
+        set COMMAND $COMMAND_WSL
     end
 
-    # if test $wrapper
     alias $command=$COMMAND
-    set -gx $command"_wsl" $COMMAND
+    alias $command_wsl=$COMMAND_WSL
+
+    # We rely on this to make rlwrap-ing aliases work
+    set -gx $command $COMMAND
 end
