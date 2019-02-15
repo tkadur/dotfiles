@@ -32,3 +32,6 @@ load_module ~/.sh/host.sh > /dev/null
 load_module ~/.config/fish/host.fish > /dev/null
 load_module ~/.config/fish/misc.fish
 load_module ~/.config/fish/aliases.fish
+
+# opam configuration
+source /mnt/c/Users/Thejas/WSL/home/tkadur/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

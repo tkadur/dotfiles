@@ -1,5 +1,5 @@
 function wsl_alias
-    set command $argv[1]
+    set command $argv
     set command_wsl $command"_wsl"
 
     set COMMAND $command

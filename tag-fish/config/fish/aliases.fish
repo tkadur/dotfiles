@@ -8,18 +8,10 @@ switch (uname)
     alias ls='ls -G'
 end
 
-wsl_alias "sml"
-wsl_alias "stack"
-wsl_alias "ghc"
-wsl_alias "ghci"
-
-wsl_aliases "sml" "stack" "cabal" "ghc" "ghci"
+wsl_aliases "sml" "stack" "cabal" "ghc" "ghci" "idris"
 
 # Enable "up" for previous commands
 if type -q "rlwrap"
-  alias sml="rlwrap $sml"
-  alias ghci="rlwrap $ghci"
-  alias stack="rlwrap $stack" # This is to make `stack ghci` work
 end
 
 # Print name of shell currently being used
