@@ -1,2 +1,2 @@
 EXCLUDES="README.md LICENSE mintty-themes/*"
-TAGS="vim nvim sh fish zsh haskell"
+TAGS="vim nvim sh fish zsh haskell emacs"
