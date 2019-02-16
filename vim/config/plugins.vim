@@ -12,8 +12,6 @@ call plug#begin('~/.vim/plugged')
 " Plugins go here
 
 " Color scheme plugins
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 
 " Appearance/layout plugins
@@ -21,8 +19,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   " Always show statusbar
   set laststatus=2
-  " Fancy arrow symbols, requires a patched font
-  let g:airline_powerline_fonts = 0
   " Show PASTE if in paste mode
   let g:airline_detect_paste=1
   " Show airline for tabs too
@@ -35,18 +31,13 @@ Plug 'mhinz/vim-startify'
 Plug 'rust-lang/rust.vim'
 Plug 'jez/vim-better-sml'
   au Filetype sml setlocal conceallevel=2
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'sheerun/vim-polyglot'                          " Adds support for a laundry list of other languages
 
 " General convenience plugins
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-surround'
-Plug 'tpope/vim-sleuth'
-" Plug 'tpope/vim-fugitive'
-"   let g:airline#extensions#branch#enabled = 1
-" Plug 'airblade/vim-gitgutter'
-Plug 'mbbill/undotree'
+Plug 'ConradIrwin/vim-bracketed-paste'               " Make pasting work without having to do `:set paste`
+Plug 'tpope/vim-commentary'	                     " Comment/uncomment a line with `gcc` or in visual mode with `gc`
+Plug 'tpope/vim-sleuth'                              " Auto adjusts indendation heuristically
+Plug 'mbbill/undotree'                               " See all your undo history in a fancy tree
 
 " Vim/Neovim compatibility
 if (!has('nvim')) && v:version >= 800
@@ -69,66 +60,10 @@ if has('nvim') || v:version >= 800
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_run_on_insert_leave = 1
 
-    let g:ale_linters = {
-          \   'c' : ['clangtidy'],
-          \   'cpp' : ['clangtidy']
-          \ }
-
-    let g:ale_fixers = {
-          \   'c' : ['clang-format'],
-          \   'cpp' : ['clang-format']
-          \ }
-
     " Don't report refactor or convention errors
     let g:ale_python_pylint_options = '--disable=R,C,I,F'
 
     let g:airline#extensions#ale#enabled = 1
-
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-  "   let g:LanguageClient_serverCommands = {
-  "       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-  "       \ 'cpp': ['$CLANGD'],
-  "       \ 'c': ['$CLANGD'],
-  "       \ }
-
-    " Automatically start language servers.
-    let g:LanguageClient_autoStart = 1
-
-    " Don't let this do ALE's job
-    let g:LanguageClient_diagnosticsList = 'location'
-    let g:LanguageClient_diagnosticsEnable = 0
-
-    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-    nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
-
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-  endif
-    let g:deoplete#enable_at_startup = 1
-    " use tab to forward cycle
-    inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-    " use tab to backward cycle
-    inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-    autocmd FileType txt let b:deoplete_disable_auto_complete = 1
-    autocmd FileType tex let b:deoplete_disable_auto_complete = 1
-    autocmd FileType md let b:deoplete_disable_auto_complete = 1
-
-    set completeopt+=noinsert
-
-    " set completeopt-=preview
-    " Automatically close deoplete preview window
-    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-  " Plug 'Shougo/neco-syntax'
-  Plug 'Shougo/neco-vim'
-  Plug 'zchee/deoplete-jedi'
-    let g:deoplete#sources#jedi#show_docstring = 1
 elseif v:version < 800
   Plug 'vim-syntastic/syntastic'
     " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
@@ -149,7 +84,7 @@ elseif v:version < 800
     let g:airline#extensions#syntastic#enabled = 1
 endif
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File tree pane 
   "Open NERDTree when Vim is launched on a directory
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -162,13 +97,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   let NERDTreeDirArrows = 1
   let g:NERDTreeQuitOnOpen = 1
 
-" Misc plugins
-Plug 'jez/vim-superman'
-Plug 'wesQ3/vim-windowswap'
-  let g:airline#extensions#windowswap#enabled = 1
-
 call plug#end()
 
 " Colors (must be set after vim-plug loads themes)
 colorscheme onedark
-" set background=dark

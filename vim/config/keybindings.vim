@@ -24,8 +24,6 @@ nnoremap <C-Down> <C-w>-
 
 " Common keyboard shortcuts
 noremap <C-f> /
-inoremap <C-a> <esc>ggVG
-nnoremap <C-a> ggVG
 
 " use 'Y' to yank to the end of a line, instead of the whole line
 noremap <silent> Y y$
@@ -36,24 +34,9 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 " Open NERDTree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
-" Easier way to save
-inoremap <C-s> <esc>:w<cr>a
-nnoremap <C-s> :w<CR>
-nnoremap <Leader>s :w<CR>
-
-" Easier way to quit
-inoremap <C-q> <esc>:q<CR>
-nnoremap <C-q> :q<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>x :wq<CR>
-
 " Consistent undo/redo commands
 nnoremap <S-u> u
 nnoremap <S-r> <C-r>
-
-" Switch buffers easily
-nnoremap gb :bnext<CR>
-nnoremap gB :bprevious<CR>
 
 " Disable middle click to paste
 map <MiddleMouse> <Nop>

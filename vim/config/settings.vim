@@ -12,14 +12,11 @@ set showcmd                    " display incomplete commands
 set incsearch                  " do incremental searching
 set wrap
 set linebreak                  " wrap lines on 'word' boundaries
-" set scrolloff=3                " don't let the cursor touch the edge of the viewport
 set splitright                 " Vertical splits  use   right half  of screen
 set splitbelow                 " Horizontal splits  use  bottom half  of screen
 set timeoutlen=1000            " Lower ^[ timeout
 set fillchars=fold:\ ,         " get rid of obnoxious '-' characters in folds
-" set tildeop                    " use ~ to toggle case as an operator, not a motion
 set colorcolumn=81             " show a column whenever textwidth is set
-" set clipboard=unnamedplus                           " use system keyboard
 set hidden                     " buffer becomes hidden when it is abandoned
 set wildmenu                   " visual autocomplete for command menu
 set wildmode=full              " complete first match immediately
