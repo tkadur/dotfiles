@@ -34,6 +34,8 @@ cp -R $INSTALL_LOCATION/vim/config ~/.vim/config
 
 vim +PlugInstall +qall
 
+mkdir -p ~/.vim/undodir
+
 printf "\n\n${bold}Installation complete!${normal}"
 echo '- Here are some convenient things you can do: '
 echo '- Comment/uncomment a line with `gcc` (`gc` when selecting text in visual mode)'
