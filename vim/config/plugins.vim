@@ -84,7 +84,7 @@ elseif v:version < 800
     let g:airline#extensions#syntastic#enabled = 1
 endif
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File tree pane 
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File tree pane
   "Open NERDTree when Vim is launched on a directory
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -93,7 +93,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File tree pane
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
   let NERDTreeAutoDeleteBuffer = 1
-  let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
   let g:NERDTreeQuitOnOpen = 1
 
