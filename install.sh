@@ -13,7 +13,7 @@ echo ""
 if [ -e ~/.vimrc ] && [ ! $(cmp -s ~/.vimrc $INSTALL_LOCATION/vimrc) ]
 then
     while true; do
-	    read -p "${red}You seem to already have your own ~/.vimrc. Do you wish to move it to ~/.vimrc.bak and continue installation? (y/n)${normal} " yn
+	    read -p "${red}You seem to already have your own ~/.vimrc.${normal} Do you wish to move it to ~/.vimrc.bak and continue installation? (y/n) " yn
 	    case $yn in
 		[Yy]* ) break;;
 		[Nn]* ) exit;;
