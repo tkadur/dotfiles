@@ -33,8 +33,9 @@ fi
 cp -R $INSTALL_LOCATION/vim/config ~/.vim/config
 
 vim +PlugInstall +qall 2>/dev/null
+reset
 
-echo "${bold}Installation complete!${bold}"
+echo "${bold}Installation complete!${normal}"
 echo 'Here are some convenient things you can do: '
 echo 'Comment/uncomment a line with `gcc` (`gc` when selecting text in visual mode)'
 echo 'Search with `/` or `Ctrl+f` and clear search result highlighting with `Esc Esc`'
