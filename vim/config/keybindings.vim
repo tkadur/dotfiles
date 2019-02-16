@@ -1,3 +1,6 @@
+" Set leader to <Space>
+let mapleader = "\<Space>"
+
 " Better line navigation scheme
 noremap <silent> j gj
 noremap <silent> k gk
