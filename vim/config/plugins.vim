@@ -28,9 +28,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 
 " Language plugins
-Plug 'rust-lang/rust.vim'
 Plug 'jez/vim-better-sml'
   au Filetype sml setlocal conceallevel=2
+Plug 'cmugpi/vim-c0'
 Plug 'sheerun/vim-polyglot'                          " Adds support for a laundry list of other languages
 
 " General convenience plugins
