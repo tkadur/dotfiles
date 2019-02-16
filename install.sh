@@ -34,12 +34,12 @@ cp -R $INSTALL_LOCATION/vim/config ~/.vim/config
 
 vim +PlugInstall +qall
 
-echo "${bold}Installation complete!${normal}"
-echo 'Here are some convenient things you can do: '
-echo 'Comment/uncomment a line with `gcc` (`gc` when selecting text in visual mode)'
-echo 'Search with `/` or `Ctrl+f` and clear search result highlighting with `Esc Esc`'
-echo 'Type `U` to undo and `R` to redo'
-echo 'Type ` u` to see your undo history (yes, with a space)'
-echo 'Type ` n` to open a file explorer tree (yes, with a space again)'
+printf "\n\n${bold}Installation complete!${normal}"
+echo '- Here are some convenient things you can do: '
+echo '- Comment/uncomment a line with `gcc` (`gc` when selecting text in visual mode)'
+echo '- Search with `/` or `Ctrl+f` and clear search result highlighting with `Esc Esc`'
+echo '- Type `U` to undo and `R` to redo'
+echo '- Type ` u` to see your undo history (yes, with a space)'
+echo '- Type ` n` to open a file explorer tree (yes, with a space again)'
 
 rm -rf $INSTALL_LOCATION
