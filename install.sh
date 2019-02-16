@@ -7,7 +7,7 @@ normal=$(tput sgr0)
 INSTALL_LOCATION=~/.dotfiles.tmp
 
 echo "${bold}Downloading config files...${normal}"
-git clone --single-branch --branch vim-only https://github.com/tkadur/dotfiles.git $INSTALL_LOCATION >/dev/null || exit
+git clone --single-branch --branch vim-only https://github.com/tkadur/dotfiles.git $INSTALL_LOCATION || exit
 
 if [ -e ~/.vimrc ] && [ ! $(cmp -s ~/.vimrc $INSTALL_LOCATION/vimrc) ]
 then
@@ -32,8 +32,7 @@ then
 fi
 cp -R $INSTALL_LOCATION/vim/config ~/.vim/config
 
-vim +PlugInstall +qall 2>/dev/null
-reset
+vim +PlugInstall +qall
 
 echo "${bold}Installation complete!${normal}"
 echo 'Here are some convenient things you can do: '
