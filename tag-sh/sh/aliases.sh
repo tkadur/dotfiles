@@ -1,4 +1,55 @@
-source ~/.sh/alias_core.sh
+# color support for ls and grep
+alias grep='grep --color=auto'
+
+# Make file manipulation verbose
+alias rm='rm -v'
+alias cp='cp -v'
+alias mv='mv -v'
+
+# Shortand ls options
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -lh'
+alias lal='ls -alh'
+alias lla='lal'
+alias lh='ls -d .*'
+alias lhl='ls -lhd .*'
+alias llh='lhl'
+
+# Moving around
+alias cdd="cd ../"
+alias cddd="cd ../../"
+alias cdddd="cd ../../../"
+alias cddddd="cd ../../../../"
+alias cdddddd="cd ../../../../../"
+alias cddddddd="cd ../../../../../../"
+alias cdddddddd="cd ../../../../../../../"
+alias cdddddddd="cd ../../../../../../../../"
+alias back="cd -"
+
+# Alternate navigation scheme
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+alias ......="cd ../../../../../"
+alias .......="cd ../../../../../../"
+alias ........="cd ../../../../../../../"
+alias ........="cd ../../../../../../../../"
+
+# General use stuff
+alias vi="vim"
+alias vvim="command vim"
+
+alias ga="git add"
+alias gb="git branch"
+alias gc="git commit -v"
+alias gd="git diff"
+alias gm="git merge"
+alias gp="git push"
+alias gpl="git pull"
+alias gl="git log"
+alias gst="git status"
 
 # color support for ls and grep
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "freebsd"* ]]; then
@@ -7,53 +58,23 @@ else
   alias ls='ls --color=auto'
 fi
 
-#SML on various systems
-SML='sml'
-if ! [ -x "$(command -v sml)" ]; then
-  if [ -x "$(command -v cmd.exe)" ]; then
-    SML='cmd.exe /c sml'
-  elif [ -x "$(command -v poly)" ]; then
-    SML='poly'
-  fi
-fi
-alias sml=$SML
-
-# Enable "up" for previous commands
-if [ -x "$(command -v rlwrap)" ]; then
-  alias sml="rlwrap $SML 2> /dev/null"
-  alias ghci="rlwrap $GHCI 2> /dev/null"
-fi
-
-# Print name of shell currently being used
-alias shell='ps -p $$ -o comm='
+rlwrap_wrapper "sml" "ghci"
 
 # Shortand ls options
-if [ -x "$(command -v exa)" ]; then
+if exists_command 'exa'; then
   alias ls='exa'
-  alias tree='ls -T'
+  alias tree='exa -T'
 fi
 
 # General use stuff
-alias mine="sudo chown $(whoami)"
-if [ -x "$(command -v nvim)" ]; then
+if exists_command 'nvim'; then
   alias vim="nvim"
 fi
 
-if [ -x "$(command -v mvim)" ]; then
-  alias mvim="mvim -v"
-fi
-
-# Open manpages in vim
-vman() {
-  vim -c "SuperMan $*"
-
-  if [ "$?" != "0" ]; then
-    echo "No manual entry for $*"
-  fi
-}
+alias edit=$EDITOR
 
 # Open things in WSL
-if [ -x "$(command -v cmd.exe)" ]; then
+if exists_command 'cmd.exe'; then
   open() {
     echo $* | sed 's/\/mnt\/\(.\)/\1:/1' | xargs cmd.exe /C start
   }
