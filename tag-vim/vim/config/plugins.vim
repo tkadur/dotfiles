@@ -83,52 +83,6 @@ if has('nvim') || v:version >= 800
     let g:ale_python_pylint_options = '--disable=R,C,I,F'
 
     let g:airline#extensions#ale#enabled = 1
-
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-  "   let g:LanguageClient_serverCommands = {
-  "       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-  "       \ 'cpp': ['$CLANGD'],
-  "       \ 'c': ['$CLANGD'],
-  "       \ }
-
-    " Automatically start language servers.
-    let g:LanguageClient_autoStart = 1
-
-    " Don't let this do ALE's job
-    let g:LanguageClient_diagnosticsList = 'location'
-    let g:LanguageClient_diagnosticsEnable = 0
-
-    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-    nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
-
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-  endif
-    let g:deoplete#enable_at_startup = 1
-    " use tab to forward cycle
-    inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-    " use tab to backward cycle
-    inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-    autocmd FileType txt let b:deoplete_disable_auto_complete = 1
-    autocmd FileType tex let b:deoplete_disable_auto_complete = 1
-    autocmd FileType md let b:deoplete_disable_auto_complete = 1
-
-    set completeopt+=noinsert
-
-    " set completeopt-=preview
-    " Automatically close deoplete preview window
-    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-  " Plug 'Shougo/neco-syntax'
-  Plug 'Shougo/neco-vim'
-  Plug 'zchee/deoplete-jedi'
-    let g:deoplete#sources#jedi#show_docstring = 1
 elseif v:version < 800
   Plug 'vim-syntastic/syntastic'
     " We need this for plugins like Syntastic and vim-gitgutter which put symbols in the sign column.
@@ -163,7 +117,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   let g:NERDTreeQuitOnOpen = 1
 
 " Misc plugins
-Plug 'jez/vim-superman'
 Plug 'wesQ3/vim-windowswap'
   let g:airline#extensions#windowswap#enabled = 1
 
