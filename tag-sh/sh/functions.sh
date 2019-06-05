@@ -11,35 +11,25 @@ exists_file () {
 }
 
 # load modules robustly by skipping all remaining modules if any module fails to load
-load_module () {
-    module="$1"
-    if exists_file "$module"; then
-        source $module
-
-        if [ "$?" != "0" ]; then
-            echo "Module $module failed to load!"
-        fi
-    else
-        echo "Module $module does not exist!"
-    fi
-}
-
-load_module_silent () {
-    module="$1"
-    if exists_file "$module"; then
-        source $module
-    fi
-}
-
 load_modules () {
     for module in "$@"; do
-        load_module "$module"
+        if exists_file "$module"; then
+            source $module
+
+            if [ "$?" != "0" ]; then
+                echo "Module $module failed to load!"
+            fi
+        else
+            echo "Module $module does not exist!"
+        fi
     done
 }
 
 load_modules_silent () {
     for module in "$@"; do
-        load_module_silent "$module"
+        if exists_file "$module"; then
+            source $module
+        fi
     done
 }
 
