@@ -1,9 +1,9 @@
 ZPLUG_LOCK_PATH=$HOME/.zsh/.zplug.lock
 if [[ ! -a "$HOME/.zplug" ]] && [[ ! -a $ZPLUG_LOCK_PATH ]]; then
-	echo "Auto-installing zplug"
-	touch $ZPLUG_LOCK_PATH
+  echo "Auto-installing zplug"
+  touch $ZPLUG_LOCK_PATH
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-	rm $ZPLUG_LOCK_PATH
+  rm $ZPLUG_LOCK_PATH
 fi
 
 source ~/.zplug/init.zsh
@@ -17,8 +17,8 @@ zplug "zdharma/fast-syntax-highlighting", from:github
 
 # Press up for history search
 zplug "zsh-users/zsh-history-substring-search", from:github
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
