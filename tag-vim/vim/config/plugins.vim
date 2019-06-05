@@ -43,9 +43,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
-" Plug 'tpope/vim-fugitive'
-"   let g:airline#extensions#branch#enabled = 1
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 
 " Vim/Neovim compatibility
@@ -114,7 +112,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   let NERDTreeAutoDeleteBuffer = 1
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
-  let g:NERDTreeQuitOnOpen = 1
+  let g:NERDTreeQuitOnOpen = 0
 
 " Misc plugins
 Plug 'wesQ3/vim-windowswap'
