@@ -17,8 +17,13 @@ zplug "zdharma/fast-syntax-highlighting", from:github
 
 # Press up for history search
 zplug "zsh-users/zsh-history-substring-search", from:github
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+else
+  bindkey '\eOA' history-substring-search-up
+  bindkey '\eOB' history-substring-search-down
+fi
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
