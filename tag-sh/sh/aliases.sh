@@ -58,6 +58,14 @@ else
   alias ls='ls --color=auto'
 fi
 
+if ! exists_command 'ghci' && exists_command 'stack'; then
+  alias ghci='stack exec ghci'
+fi
+
+if ! exists_command 'ghc' && exists_command 'stack'; then
+  alias ghc='stack exec ghc'
+fi
+
 rlwrap_wrapper "sml" "ghci"
 
 # Shortand ls options
