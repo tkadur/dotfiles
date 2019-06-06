@@ -48,7 +48,7 @@ alias gd="git diff"
 alias gm="git merge"
 alias gp="git push"
 alias gpl="git pull"
-alias gl="git log"
+alias gl="git log --stat"
 alias gst="git status"
 
 # color support for ls and grep
@@ -87,3 +87,8 @@ if exists_command 'cmd.exe'; then
     echo $* | sed 's/\/mnt\/\(.\)/\1:/1' | xargs cmd.exe /C start
   }
 fi
+
+if exists_command 'python3'; then
+  alias python='python3'
+fi
+
