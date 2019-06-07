@@ -1,5 +1,7 @@
+#!/usr/bin/env sh
+
 exists_command () {
-    [ -x "$(command -v $1)" ] && return
+    [ -x "$(command -v "$1")" ] && return
 }
 
 exists_directory () {
@@ -14,7 +16,7 @@ exists_file () {
 load_modules () {
     for module in "$@"; do
         if exists_file "$module"; then
-            source $module
+            . "$module"
 
             if [ "$?" != "0" ]; then
                 echo "Module $module failed to load!"
@@ -28,7 +30,7 @@ load_modules () {
 load_modules_silent () {
     for module in "$@"; do
         if exists_file "$module"; then
-            source $module
+            . "$module"
         fi
     done
 }
@@ -55,7 +57,12 @@ add_to_path_silent () {
 rlwrap_wrapper () {
     for name in "$@"; do
         if exists_command "rlwrap"; then
-            alias $name="rlwrap $name"
+            # We want this to expand at definition, not at use
+            # shellcheck disable=SC2139
+
+            # This is just a false positive
+            # shellcheck disable=SC2140
+            alias "$name"="rlwrap $name"
         fi
     done
 }
