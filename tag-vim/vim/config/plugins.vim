@@ -37,6 +37,9 @@ Plug 'jez/vim-better-sml'
   au Filetype sml setlocal conceallevel=2
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
 
 " General convenience plugins
 Plug 'ConradIrwin/vim-bracketed-paste'
