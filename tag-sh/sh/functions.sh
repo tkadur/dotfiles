@@ -12,6 +12,12 @@ exists_file () {
     [ -f "$1" ] && return
 }
 
+# I like writing `source`
+# But let's maintain strict POSIX compliance in .sh scripts
+if ! exists_command 'source'; then
+    alias source='.'
+fi
+
 # load modules robustly by skipping all remaining modules if any module fails to load
 load_modules () {
     for module in "$@"; do
