@@ -67,7 +67,7 @@ if ! exists_command 'ghc' && exists_command 'stack'; then
   alias ghc='stack exec ghc'
 fi
 
-rlwrap_wrapper 'sml' 'ghci'
+rlwrap_wrapper 'sml'
 
 # Shortand ls options
 if exists_command 'exa'; then
