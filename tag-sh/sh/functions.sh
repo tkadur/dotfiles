@@ -37,7 +37,7 @@ fi
 load_modules () {
     for module in "$@"; do
         if exists_file "$module"; then
-            if source "$module"; then
+            if ! source "$module"; then
                 echo "Module $module failed to load!"
             fi
         else
