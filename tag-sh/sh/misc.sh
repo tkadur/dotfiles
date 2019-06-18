@@ -3,6 +3,9 @@
 # Fix vim ctrl+s to save
 stty -ixon
 
+# Disable ctrl-d to exit
+set -o ignoreeof
+
 if exists_file "$HOME/.opam/opam-init/init.sh"; then
   # We alias `source` to `.` in `tag-sh/sh/init.sh`, but shellcheck doesn't know that
   # shellcheck disable=SC2039
