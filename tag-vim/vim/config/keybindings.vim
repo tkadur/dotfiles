@@ -39,17 +39,6 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 " Easier way to save
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<CR>
-nnoremap <Leader>s :w<CR>
-
-" Easier way to quit
-inoremap <C-q> <esc>:q<CR>
-nnoremap <C-q> :q<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>x :wq<CR>
-
-" Consistent undo/redo commands
-nnoremap <S-u> u
-nnoremap <S-r> <C-r>
 
 " Switch buffers easily
 nnoremap gb :bnext<CR>

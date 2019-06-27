@@ -9,11 +9,10 @@ then
 else
   source ~/.sh/init.sh
 
-  load_module ~/.sh/host.sh > /dev/null
-  load_module ~/.sh/misc.sh
-  load_module ~/.sh/aliases.sh
+  load_modules_silent ~/.sh/host.sh
+  load_modules ~/.sh/misc.sh ~/.sh/aliases.sh
 
-  load_module ~/.zsh/host.zsh > /dev/null
-  load_module ~/.zsh/misc.zsh
-  load_module ~/.zsh/plugins.zsh
+  load_modules_silent ~/.zsh/host.zsh
+  load_modules ~/.zsh/misc.zsh ~/.zsh/plugins.zsh
 fi
+
