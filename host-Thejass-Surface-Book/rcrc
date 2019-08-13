@@ -1,2 +1,0 @@
-EXCLUDES="README.md LICENSE mintty-themes/*"
-TAGS="vim nvim sh zsh python haskell bash"

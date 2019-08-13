@@ -1,0 +1,13 @@
+excludes:
+        - README*
+        - LICENSE
+        - host-Thejass-Surface-Book/mintty-themes/*
+
+tags:
+        - vim
+        - nvim
+        - sh
+        - zsh
+        - bash
+        - python
+        - haskell
