@@ -1,18 +1,7 @@
-if [[ "$TERM" == "dumb" ]]
-then
-    unsetopt zle
-    unsetopt prompt_cr
-    unsetopt prompt_subst
-    unfunction precmd
-    unfunction preexec
-    PS1='$ '
-else
-  source ~/.sh/init.sh
+source ~/.sh/init.sh
 
-  load_modules_silent ~/.sh/host.sh
-  load_modules ~/.sh/misc.sh ~/.sh/aliases.sh
+load_modules_silent ~/.sh/host.sh
+load_modules ~/.sh/misc.sh ~/.sh/aliases.sh
 
-  load_modules_silent ~/.zsh/host.zsh
-  load_modules ~/.zsh/misc.zsh ~/.zsh/plugins.zsh
-fi
-
+load_modules_silent ~/.zsh/host.zsh
+load_modules ~/.zsh/misc.zsh ~/.zsh/plugins.zsh
