@@ -1,3 +1,3 @@
-My sketchy dotfiles consisting mostly of stuff stolen from other people.
+My dotfiles.
 
-[![xkcd: Automation](http://imgs.xkcd.com/comics/automation.png)](http://xkcd.com/1319/)
+Managed with [dotman](https://github.com/tkadur/dotman).
