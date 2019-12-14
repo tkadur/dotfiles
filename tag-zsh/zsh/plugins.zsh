@@ -8,6 +8,8 @@ fi
 
 source ~/.zplug/init.zsh
 
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # Pure theme
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
@@ -17,7 +19,11 @@ zplug "zdharma/fast-syntax-highlighting", from:github
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
-    zplug install
+	zplug install
+fi
+
+if ! zplug status > /dev/null; then
+  zplug update
 fi
 
 # Then, source plugins and add commands to $PATH
