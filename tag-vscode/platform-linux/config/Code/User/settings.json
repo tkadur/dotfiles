@@ -1,0 +1,137 @@
+{
+    // General settings
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "One Dark Pro",
+    "vsicons.dontShowNewVersionMessage": true,
+    "terminal.integrated.shell.linux": "/usr/sbin/zsh",
+    "git.ignoreLegacyWarning": true,
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.wordWrap": "on",
+    "editor.emptySelectionClipboard": false,
+    "window.zoomLevel": 0,
+    "code-runner.saveFileBeforeRun": true,
+    "liveshare.languages.allowGuestCommandControl": true,
+
+    // Rust options
+    "rust-client.rustupPath": "/home/tkadur/.cargo/bin/rustup",
+
+    // Reason/OCaml options
+    "reason.codelens.enabled": true,
+
+    // LaTeX options
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.message.update.show": false,
+
+    // Python options
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+
+    // Vim options
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-s>": false,
+    },
+    "vim.useSystemClipboard": true,
+
+    // Git Lens options
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "scm",
+    "gitlens.views.lineHistory.location": "scm",
+    "gitlens.views.compare.location": "scm",
+    "gitlens.views.search.location": "scm",
+    "gitlens.menus": {
+        "editor": {
+            "blame": false,
+            "clipboard": true,
+            "compare": true,
+            "details": false,
+            "history": false,
+            "remote": false
+        },
+        "editorGroup": {
+            "blame": true,
+            "compare": true
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true,
+            "stashInline": true
+        },
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true,
+            "stash": true
+        }
+    },
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.blame.toggleMode": "window",
+    "gitlens.codeLens.enabled": false,
+    "gitlens.heatmap.toggleMode": "window",
+    "gitlens.recentChanges.toggleMode": "window",
+    "gitlens.hovers.enabled": false,
+    "explorer.autoReveal": false,
+    "git.confirmSync": false,
+    "debug.showBreakpointsInOverviewRuler": true,
+}
