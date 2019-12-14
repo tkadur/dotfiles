@@ -7,7 +7,7 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
-add_to_path_silent "$HOME/.cargo/bin" "$HOME/.local/bin"
+add_to_path_silent "$HOME/.cargo/bin" "$HOME/.local/bin" "/usr/local/smlnj/bin"
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
