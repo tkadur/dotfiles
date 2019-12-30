@@ -16,9 +16,6 @@
     "code-runner.saveFileBeforeRun": true,
     "liveshare.languages.allowGuestCommandControl": true,
 
-    // Rust options
-    "rust-client.rustupPath": "/home/tkadur/.cargo/bin/rustup",
-
     // Reason/OCaml options
     "reason.codelens.enabled": true,
 
@@ -136,4 +133,12 @@
     "explorer.autoReveal": false,
     "git.confirmSync": false,
     "debug.showBreakpointsInOverviewRuler": true,
+    "rust-analyzer.enableCargoWatchOnStartup": "enabled",
+    "rust-analyzer.enableEnhancedTyping": false,
+    "terminal.integrated.fontSize": 13,
+    "rust-client.updateOnStartup": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "rust-client.channel": "nightly",
+    "git.autofetch": true,
 }
