@@ -83,9 +83,9 @@ fi
 alias edit='$EDITOR'
 
 # Open things in WSL
-if exists_command 'cmd.exe'; then
+if exists_command 'explorer.exe'; then
   open() {
-    echo "$@" | sed 's/\/mnt\/\(.\)/\1:/1' | xargs cmd.exe /C start
+    explorer.exe $(wslpath -w $@)
   }
 fi
 
