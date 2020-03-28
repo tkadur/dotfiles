@@ -64,6 +64,16 @@ add_to_path () {
     done
 }
 
+add_to_path_priority() {
+    for dir in "$@"; do
+        if exists_directory "$dir"; then
+            export PATH="$dir:$PATH"
+        else
+            echo "Directory $dir not found to add to PATH!"
+        fi
+    done
+}
+
 add_to_path_silent () {
     for dir in "$@"; do
         if exists_directory "$dir"; then
