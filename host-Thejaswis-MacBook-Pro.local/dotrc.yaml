@@ -1,0 +1,13 @@
+excludes:
+  - README*
+  - LICENSE
+
+tags:
+  - vim
+  - nvim
+  - sh
+  - zsh
+  - bash
+  - python
+  - haskell
+  - vscode
