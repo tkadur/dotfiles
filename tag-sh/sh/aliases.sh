@@ -82,13 +82,6 @@ fi
 
 alias edit='$EDITOR'
 
-# Open things in WSL
-if exists_command 'explorer.exe'; then
-  open() {
-    explorer.exe $(wslpath -w $@)
-  }
-fi
-
 if exists_command 'python3'; then
   alias python='python3'
 fi
