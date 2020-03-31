@@ -1,5 +1,5 @@
 ZPLUG_LOCK_PATH=$HOME/.zsh/.zplug.lock
-if [[ ! -a "$HOME/.zplug" ]] && [[ ! -a $ZPLUG_LOCK_PATH ]]; then
+if ! exists_directory "$HOME/.zplug" && ! exists_file $ZPLUG_LOCK_PATH; then
   echo "Auto-installing zplug"
   touch $ZPLUG_LOCK_PATH
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
@@ -19,11 +19,7 @@ zplug "zdharma/fast-syntax-highlighting", from:github
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
-	zplug install
-fi
-
-if ! zplug status > /dev/null; then
-  zplug update
+  zplug install
 fi
 
 # Then, source plugins and add commands to $PATH

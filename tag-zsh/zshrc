@@ -1,7 +1,7 @@
 source ~/.sh/init.sh
 
 load_modules ~/.sh/misc.sh ~/.sh/aliases.sh
-load_modules_silent ~/.sh/host.sh
+load_modules_silent ~/.sh/host/misc.sh ~/.sh/host/aliases.sh
 
-load_modules ~/.zsh/misc.zsh ~/.zsh/plugins.zsh
-load_modules_silent ~/.zsh/host.zsh
+load_modules ~/.zsh/settings.zsh ~/.zsh/plugins.zsh
+load_modules_silent ~/.zsh/host/settings.zsh ~/.zsh/host/plugins.zsh
