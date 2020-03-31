@@ -1,14 +1,11 @@
-ZPLUG_LOCK_PATH=$HOME/.zsh/.zplug.lock
-if ! exists_directory "$HOME/.zplug" && ! exists_file $ZPLUG_LOCK_PATH; then
+if ! exists_directory "$HOME/.zplug"; then
   echo "Auto-installing zplug"
-  touch $ZPLUG_LOCK_PATH
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-  rm $ZPLUG_LOCK_PATH
+  git clone https://github.com/b4b4r07/zplug ~/.zplug
 fi
 
 source ~/.zplug/init.zsh
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "lib/clipboard", from:oh-my-zsh
 
 # Pure theme
 zplug "mafredri/zsh-async", from:github
