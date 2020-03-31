@@ -10,6 +10,7 @@
     "editor.wordWrap": "on",
     "explorer.autoReveal": false,
     "files.trimTrailingWhitespace": true,
+    "scm.diffDecorations": "gutter",
     "terminal.integrated.shell.linux": "/usr/sbin/zsh",
     "window.zoomLevel": 0,
     "workbench.colorTheme": "One Dark Pro",
@@ -31,7 +32,6 @@
     // Python settings
     "python.analysis.openFilesOnly": false,
     "python.formatting.provider": "black",
-    "python.jediEnabled": false,
     "python.linting.enabled": true,
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": true,
@@ -137,4 +137,10 @@
             ]
         }
     ],
+    "cmake.configureOnOpen": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitPath": "/Users/tkadur/.config/nvim/init.vim",
+    "vscode-neovim.mouseSelectionStartVisualMode": true,
+    "python.jediEnabled": false,
 }
