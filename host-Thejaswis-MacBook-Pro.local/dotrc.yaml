@@ -1,6 +1,7 @@
 excludes:
   - README*
   - LICENSE
+  - com.googlecode.iterm2.plist
 
 tags:
   - vim
