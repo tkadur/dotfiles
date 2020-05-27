@@ -139,8 +139,5 @@
     ],
     "cmake.configureOnOpen": true,
     "C_Cpp.updateChannel": "Insiders",
-    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitPath": "/Users/tkadur/.config/nvim/init.vim",
-    "vscode-neovim.mouseSelectionStartVisualMode": true,
     "python.jediEnabled": false,
 }
