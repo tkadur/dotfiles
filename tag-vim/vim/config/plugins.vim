@@ -48,6 +48,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
+  " Open undotree
+  nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Vim/Neovim compatibility
 if (!has('nvim')) && v:version >= 800
@@ -116,6 +118,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
   let g:NERDTreeQuitOnOpen = 0
+
+  " Open NERDTree
+  nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Misc plugins
 Plug 'wesQ3/vim-windowswap'

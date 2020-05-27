@@ -33,9 +33,6 @@ noremap <silent> Y y$
 " Open undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
-" Open NERDTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
-
 " Easier way to save
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<CR>

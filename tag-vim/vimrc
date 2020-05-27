@@ -26,4 +26,3 @@ try
   runtime! config/host.vim
 catch
 endtry
-
