@@ -140,4 +140,6 @@
     "cmake.configureOnOpen": true,
     "C_Cpp.updateChannel": "Insiders",
     "python.jediEnabled": false,
+    "languageServerHaskell.hieExecutablePath": "/Users/tkadur/.local/bin/hie",
+    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
 }
