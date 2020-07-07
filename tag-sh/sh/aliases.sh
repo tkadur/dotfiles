@@ -26,7 +26,7 @@ alias cddddd='cd ../../../../'
 alias cdddddd='cd ../../../../../'
 alias cddddddd='cd ../../../../../../'
 alias cdddddddd='cd ../../../../../../../'
-alias cdddddddd='cd ../../../../../../../../'
+alias cddddddddd='cd ../../../../../../../../'
 alias back='cd -'
 
 # Alternate navigation scheme
@@ -37,7 +37,7 @@ alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
 alias .......='cd ../../../../../../'
 alias ........='cd ../../../../../../../'
-alias ........='cd ../../../../../../../../'
+alias .........='cd ../../../../../../../../'
 
 # General use stuff
 alias vi='vim'
