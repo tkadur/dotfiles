@@ -14,6 +14,9 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 # Syntax highlighting
 zplug "zdharma/fast-syntax-highlighting", from:github
 
+# Fancier C-r behavior
+zplug "zdharma/history-search-multi-word", from:github
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
   zplug install
