@@ -1,7 +1,4 @@
 source ~/.sh/init.sh
 
-load_modules_silent ~/.sh/host.sh
-load_modules ~/.sh/misc.sh ~/.sh/aliases.sh
-
 load_modules_silent ~/.bash/host.bash
 load_modules ~/.bash/misc.bash ~/.bash/plugins.bash
