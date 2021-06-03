@@ -45,12 +45,13 @@ alias vi='vim'
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -v'
+alias gcan='gc --amend --no-edit'
+alias gk='git checkout'
 alias gd='git diff'
-alias gm='git merge'
-alias gp='git push'
-alias gpl='git pull'
 alias gl='git log --stat'
+alias gr='git rebase'
 alias gst='git status'
+alias my-git-stats='git log --shortstat --author="$(git config user.name)" | grep -E "fil(e|es) changed" | awk '\''{files+=$1; inserted+=$4; deleted+=$6; delta+=$4-$6; ratio=deleted/inserted} END {printf "Commit stats:\n- Files changed (total)..  %s\n- Lines added (total)....  %s\n- Lines deleted (total)..  %s\n- Total lines (delta)....  %s\n- Add./Del. ratio (1:n)..  1 : %s\n", files, inserted, deleted, delta, ratio }'\'' -'
 
 # color support for ls and grep
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "freebsd"* ]]; then
