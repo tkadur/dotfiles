@@ -1,8 +1,12 @@
 {
+    // C++ settings
+    "cmake.configureOnOpen": true,
+    "C_Cpp.updateChannel": "Insiders",
     // General VSCode settings
     "debug.showBreakpointsInOverviewRuler": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.emptySelectionClipboard": false,
+    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
@@ -11,8 +15,6 @@
     "explorer.autoReveal": false,
     "files.trimTrailingWhitespace": true,
     "scm.diffDecorations": "gutter",
-    "terminal.integrated.shell.linux": "/usr/sbin/zsh",
-    "window.zoomLevel": 0,
     "workbench.colorTheme": "One Dark Pro",
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.enablePreview": false,
@@ -20,21 +22,6 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.iconTheme": "vscode-icons",
     "workbench.tips.enabled": false,
-    // Misc. extension settings
-    "code-runner.saveFileBeforeRun": true,
-    "liveshare.languages.allowGuestCommandControl": true,
-    "vsicons.dontShowNewVersionMessage": true,
-    // Reason/OCaml settings
-    "reason.codelens.enabled": true,
-    // LaTeX settings
-    "latex-workshop.message.update.show": false,
-    "latex-workshop.view.pdf.viewer": "tab",
-    // Python settings
-    "python.analysis.openFilesOnly": false,
-    "python.formatting.provider": "black",
-    "python.linting.enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.linting.pylintEnabled": true,
     // Git settings
     "git.autofetch": true,
     "git.confirmSync": false,
@@ -92,6 +79,32 @@
     "gitlens.views.lineHistory.location": "scm",
     "gitlens.views.repositories.location": "scm",
     "gitlens.views.search.location": "scm",
+    // Go settings
+    "go.useLanguageServer": true,
+    // Haskell settings
+    "languageServerHaskell.hieExecutablePath": "/Users/tkadur/.local/bin/hie",
+    // Misc. extension settings
+    "code-runner.saveFileBeforeRun": true,
+    "liveshare.languages.allowGuestCommandControl": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    // Python settings
+    "python.analysis.openFilesOnly": false,
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": true,
+    // Reason/OCaml settings
+    "reason.codelens.enabled": true,
+    // Rust settings
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.debug.openDebugPane": true,
+    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "rust-analyzer.procMacro.enable": true,
+    // Standard ML settings
+    "sml.smlnj.make.debounce": 600000000000000000000,
+    // LaTeX settings
+    "latex-workshop.message.update.show": false,
+    "latex-workshop.view.pdf.viewer": "tab",
     // Vim settings
     "vim.handleKeys": {
         "<C-a>": false,
@@ -137,9 +150,17 @@
             ]
         }
     ],
-    "cmake.configureOnOpen": true,
-    "C_Cpp.updateChannel": "Insiders",
-    "python.jediEnabled": false,
-    "languageServerHaskell.hieExecutablePath": "/Users/tkadur/.local/bin/hie",
-    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latexindent.path": "true",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "editor.fontSize": 13,
+    "debug.toolBarLocation": "docked",
+    "go.toolsManagement.autoUpdate": true,
 }
