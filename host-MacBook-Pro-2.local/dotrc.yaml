@@ -1,5 +1,5 @@
 excludes:
-  - README*
+  - README.*
   - LICENSE
   - com.googlecode.iterm2.plist
 

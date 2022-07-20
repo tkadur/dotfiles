@@ -1,7 +1,6 @@
 {
     // C++ settings
     "cmake.configureOnOpen": true,
-    "C_Cpp.updateChannel": "Insiders",
     // General VSCode settings
     "debug.showBreakpointsInOverviewRuler": true,
     "editor.cursorSmoothCaretAnimation": true,
@@ -29,8 +28,6 @@
     "git.ignoreLegacyWarning": true,
     // Git Lens settings
     "gitlens.blame.toggleMode": "window",
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
     "gitlens.heatmap.toggleMode": "window",
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.hovers.enabled": false,
@@ -98,7 +95,6 @@
     // Rust settings
     "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.debug.openDebugPane": true,
-    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.procMacro.enable": true,
     // Standard ML settings
     "sml.smlnj.make.debounce": 600000000000000000000,
@@ -163,4 +159,12 @@
     "editor.fontSize": 13,
     "debug.toolBarLocation": "docked",
     "go.toolsManagement.autoUpdate": true,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "rust-analyzer.cargo.buildScripts.enable": true,
+    "rust-analyzer.completion.postfix.enable": false,
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.closingBraceHints.enable": false,
 }
